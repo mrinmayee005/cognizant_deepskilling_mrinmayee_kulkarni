@@ -1,0 +1,3 @@
+com\cognizant\authresourceserver\AuthResourceServerApplication.class
+com\cognizant\authresourceserver\config\ResourceServerConfig.class
+com\cognizant\authresourceserver\controller\SecureController.class

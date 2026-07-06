@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+button { margin: 5px; padding: 8px 16px; cursor: pointer; }
+.card { border: 1px solid #ccc; padding: 15px; margin: 10px 0; border-radius: 5px; }
+.light button { background-color: #f0f0f0; color: #333; border: 1px solid #aaa; }
+.dark button { background-color: #333; color: #fff; border: 1px solid #666; }
+.light { background-color: #ffffff; color: #000000; }
+.dark { background-color: #222222; color: #ffffff; }

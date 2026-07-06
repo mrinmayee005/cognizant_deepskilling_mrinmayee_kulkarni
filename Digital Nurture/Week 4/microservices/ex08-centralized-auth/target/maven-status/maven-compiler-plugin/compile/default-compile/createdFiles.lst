@@ -1,0 +1,3 @@
+com\cognizant\centralizedauth\controller\UserController.class
+com\cognizant\centralizedauth\CentralizedAuthApplication.class
+com\cognizant\centralizedauth\config\SecurityConfig.class

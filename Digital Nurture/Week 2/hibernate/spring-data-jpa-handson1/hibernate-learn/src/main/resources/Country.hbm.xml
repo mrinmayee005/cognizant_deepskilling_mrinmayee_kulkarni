@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.cognizant.model.Country" table="country">
+
+        <id name="code" column="co_code"/>
+
+        <property name="name" column="co_name"/>
+
+    </class>
+
+</hibernate-mapping>

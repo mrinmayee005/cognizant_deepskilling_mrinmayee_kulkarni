@@ -1,0 +1,4 @@
+com\cognizant\productservice\ProductController.class
+com\cognizant\productservice\Product.class
+com\cognizant\productservice\ProductRepository.class
+com\cognizant\productservice\ProductServiceApplication.class

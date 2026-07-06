@@ -1,0 +1,4 @@
+com\cognizant\paymentservice\config\CircuitBreakerConfig.class
+com\cognizant\paymentservice\PaymentServiceApplication.class
+com\cognizant\paymentservice\PaymentController.class
+com\cognizant\paymentservice\service\ThirdPartyService.class

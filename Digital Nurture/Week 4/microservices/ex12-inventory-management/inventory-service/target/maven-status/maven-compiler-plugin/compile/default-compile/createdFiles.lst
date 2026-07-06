@@ -1,0 +1,4 @@
+com\cognizant\inventoryservice\Inventory.class
+com\cognizant\inventoryservice\InventoryController.class
+com\cognizant\inventoryservice\InventoryServiceApplication.class
+com\cognizant\inventoryservice\InventoryRepository.class
