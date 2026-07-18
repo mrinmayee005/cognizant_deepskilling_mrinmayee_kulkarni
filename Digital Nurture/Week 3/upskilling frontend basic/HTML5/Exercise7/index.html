@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Video Invite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+        }
+        header {
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2rem; }
+        main {
+            max-width: 850px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card h2 {
+            color: #c0392b;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .video-container {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        video {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 3px solid #ddd;
+            background: #000;
+        }
+        #videoStatus {
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        #videoStatus.ready {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        #videoStatus.loading {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffc107;
+        }
+        .video-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+        }
+        .video-info h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .video-info ul {
+            margin-left: 1.5rem;
+        }
+        .video-info ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Form section for onbeforeunload */
+        .rsvp-form {
+            margin-top: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.7rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .submit-btn {
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .submit-btn:hover { opacity: 0.9; }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>Local Community Event Portal</h1>
+        <p>Video Invitation &amp; Media Events</p>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Video Section -->
+        <div class="card">
+            <h2>Watch Our Event Preview</h2>
+            <div class="video-container">
+                <video 
+                    id="eventVideo" 
+                    width="640" 
+                    height="360" 
+                    controls 
+                    preload="metadata"
+                    oncanplay="showVideoReady()"
+                    onplaying="showVideoPlaying()"
+                    onpause="showVideoPaused()"
+                    onended="showVideoEnded()"
+                    onerror="showVideoError()"
+                >
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                    Your browser does not support the video element. Please update your browser.
+                </video>
+            </div>
+
+            <div id="videoStatus" class="loading">Loading video...</div>
+
+            <div class="video-info">
+                <h3>What You'll See at Our Events</h3>
+                <ul>
+                    <li>Live music performances from talented local artists</li>
+                    <li>Delicious food from over 20 community vendors</li>
+                    <li>Fun activities for the entire family</li>
+                    <li>Art exhibitions and creative workshops</li>
+                    <li>Networking opportunities with neighbors</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RSVP Form with onbeforeunload -->
+        <div class="card">
+            <h2>Quick RSVP</h2>
+            <p style="margin-bottom: 1rem; color: #666;">
+                Fill out this form to RSVP. If you leave without submitting, you'll be warned about unsaved changes.
+            </p>
+
+            <form id="rsvpForm" class="rsvp-form" onsubmit="return submitRSVP(event)">
+                <div class="form-group">
+                    <label for="rsvpName">Your Name</label>
+                    <input type="text" id="rsvpName" placeholder="Enter your name" oninput="formDirty()">
+                </div>
+                <div class="form-group">
+                    <label for="rsvpEmail">Email</label>
+                    <input type="email" id="rsvpEmail" placeholder="your@email.com" oninput="formDirty()">
+                </div>
+                <div class="form-group">
+                    <label for="rsvpGuests">Number of Guests</label>
+                    <select id="rsvpGuests" onchange="formDirty()">
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5+">5 or more</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Confirm RSVP</button>
+            </form>
+            <div id="rsvpResult" style="margin-top: 1rem; padding: 1rem; border-radius: 6px; display: none;"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        var formIsDirty = false;
+
+        // Track form changes
+        function formDirty() {
+            formIsDirty = true;
+        }
+
+        // onbeforeunload: warn about leaving with unsaved changes
+        window.onbeforeunload = function(e) {
+            if (formIsDirty) {
+                return 'You have unsaved RSVP changes. Are you sure you want to leave?';
+            }
+        };
+
+        // Media event handlers
+        function showVideoReady() {
+            var status = document.getElementById('videoStatus');
+            status.textContent = 'Video ready to play! Click the play button to start.';
+            status.className = 'ready';
+        }
+
+        function showVideoPlaying() {
+            var status = document.getElementById('videoStatus');
+            status.textContent = 'Now playing: Community Event Preview';
+            status.className = 'ready';
+        }
+
+        function showVideoPaused() {
+            var status = document.getElementById('videoStatus');
+            status.textContent = 'Video paused.';
+            status.className = 'loading';
+        }
+
+        function showVideoEnded() {
+            var status = document.getElementById('videoStatus');
+            status.textContent = 'Video finished. Thank you for watching!';
+            status.className = 'ready';
+        }
+
+        function showVideoError() {
+            var status = document.getElementById('videoStatus');
+            status.textContent = 'Error loading video. Please check your connection.';
+            status.className = 'loading';
+            status.style.background = '#f8d7da';
+            status.style.color = '#721c24';
+            status.style.borderColor = '#f5c6cb';
+        }
+
+        // Submit RSVP
+        function submitRSVP(e) {
+            e.preventDefault();
+            formIsDirty = false;
+            var name = document.getElementById('rsvpName').value;
+            var email = document.getElementById('rsvpEmail').value;
+            var guests = document.getElementById('rsvpGuests').value;
+            var result = document.getElementById('rsvpResult');
+            result.style.display = 'block';
+            result.style.background = '#d4edda';
+            result.style.color = '#155724';
+            result.style.border = '1px solid #c3e6cb';
+            result.innerHTML = '<strong>RSVP Confirmed!</strong><br>' +
+                'Thank you, ' + name + '! Your spot for ' + guests + ' has been reserved. ' +
+                'Confirmation sent to ' + email + '.';
+            document.getElementById('rsvpForm').reset();
+            return false;
+        }
+    </script>
+
+</body>
+</html>

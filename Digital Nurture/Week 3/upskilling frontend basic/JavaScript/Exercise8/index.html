@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Portal - Exercise 8: Event Handling</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); min-height: 100vh; padding: 2rem; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #e65100; margin-bottom: 1rem; text-align: center; }
+        .section { background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .section h2 { color: #e65100; margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .event-row { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem; border-bottom: 1px solid #eee; }
+        .event-row:last-child { border-bottom: none; }
+        button { padding: 0.4rem 0.8rem; background: #e65100; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        button:hover { opacity: 0.85; }
+        input, select { padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; margin: 0.3rem; }
+        #searchResults { margin-top: 0.5rem; padding: 0.5rem; background: #fff3e0; border-radius: 4px; }
+        #filterResults { margin-top: 0.5rem; }
+        .badge { display: inline-block; background: #e65100; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; text-align: center; display: block; width: fit-content; margin: 1rem auto 0; }
+        #keyLog { font-family: monospace; font-size: 0.85rem; color: #666; max-height: 100px; overflow-y: auto; margin-top: 0.5rem; background: #f5f5f5; padding: 0.5rem; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Local Community Event Portal</h1>
+
+        <div class="section">
+            <h2>Search Events (keydown)</h2>
+            <input type="text" id="searchInput" placeholder="Type to search events..." style="width:100%">
+            <div id="searchResults"></div>
+            <div id="keyLog"></div>
+        </div>
+
+        <div class="section">
+            <h2>Filter by Category (onchange)</h2>
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="music">Music</option>
+                <option value="outdoor">Outdoor</option>
+                <option value="tech">Tech</option>
+                <option value="art">Art</option>
+                <option value="food">Food</option>
+            </select>
+            <div id="filterResults"></div>
+        </div>
+
+        <div class="section">
+            <h2>Register for Events (onclick)</h2>
+            <div id="eventList"></div>
+            <div id="regMessage" style="margin-top:0.5rem;padding:0.5rem;background:#e8f5e9;border-radius:4px;display:none;"></div>
+        </div>
+
+        <span class="badge">Exercise 8: Event Handling</span>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

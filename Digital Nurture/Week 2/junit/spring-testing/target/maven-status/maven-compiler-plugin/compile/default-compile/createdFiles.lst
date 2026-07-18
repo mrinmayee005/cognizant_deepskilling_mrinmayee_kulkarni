@@ -1,0 +1,6 @@
+exercises\User.class
+exercises\UserRepository.class
+exercises\GlobalExceptionHandler.class
+exercises\UserController.class
+exercises\Application.class
+exercises\UserService.class

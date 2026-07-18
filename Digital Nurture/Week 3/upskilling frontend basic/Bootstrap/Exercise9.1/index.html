@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9.1 - Login Form with Floating Labels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- EXERCISE 9.1: Login form using form-floating Bootstrap component -->
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+            <div class="col-md-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <i class="bi bi-person-circle display-1 text-primary"></i>
+                            <h2 class="mt-2">Welcome Back</h2>
+                            <p class="text-muted">Sign in to your account</p>
+                        </div>
+
+                        <form>
+                            <!-- Floating label for email -->
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                                <label for="floatingEmail">Email address</label>
+                            </div>
+
+                            <!-- Floating label for password -->
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+
+                            <!-- Remember me and forgot password -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+                                <a href="#" class="text-decoration-none small">Forgot password?</a>
+                            </div>
+
+                            <!-- Login button -->
+                            <button type="submit" class="btn btn-primary w-100 mb-3 py-2">
+                                <i class="bi bi-box-arrow-in-right"></i> Sign In
+                            </button>
+
+                            <!-- Divider -->
+                            <div class="d-flex align-items-center mb-3">
+                                <hr class="flex-grow-1">
+                                <span class="text-muted mx-2 small">OR</span>
+                                <hr class="flex-grow-1">
+                            </div>
+
+                            <!-- Social login buttons -->
+                            <button type="button" class="btn btn-outline-dark w-100 mb-2">
+                                <i class="bi bi-google"></i> Sign in with Google
+                            </button>
+                            <button type="button" class="btn btn-outline-primary w-100 mb-3">
+                                <i class="bi bi-facebook"></i> Sign in with Facebook
+                            </button>
+
+                            <!-- Sign up link -->
+                            <div class="text-center">
+                                <p class="text-muted mb-0">Don't have an account? <a href="#" class="text-decoration-none">Sign up</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <small class="text-muted">Exercise 9.1 — Form Floating Labels</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

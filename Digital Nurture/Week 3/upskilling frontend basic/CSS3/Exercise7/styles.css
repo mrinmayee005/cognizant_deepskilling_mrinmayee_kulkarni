@@ -1,0 +1,276 @@
+/*
+    =============================================
+    styles.css
+    Exercise 7: Table Styling
+    Theme: Local Community Event Portal
+    =============================================
+    Demonstrates: table borders, padding,
+    background colors, zebra striping with
+    nth-child(even), border-collapse, and
+    text-align: center.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Reset and Base Styles
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------
+   Site Header
+   ------------------------------------------- */
+.site-header {
+    background-color: #1d3557;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.site-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.site-header p {
+    color: #a8dadc;
+    margin-top: 0.3rem;
+}
+
+/* -------------------------------------------
+   Table Section Container
+   Wraps each table and its heading
+   ------------------------------------------- */
+.table-section {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.table-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+}
+
+/* -------------------------------------------
+   Table Wrapper
+   Allows horizontal scrolling on small screens
+   ------------------------------------------- */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------------------------
+   Base Table Styles
+   Shared across all tables on the page
+   ------------------------------------------- */
+table {
+    width: 100%;
+    /* Collapse borders into a single border */
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+/* -------------------------------------------
+   Table Header (thead)
+   Dark background with white text
+   ------------------------------------------- */
+thead {
+    background-color: #1d3557;
+    color: #ffffff;
+}
+
+/* Table header cells */
+thead th {
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid #2a4a72;
+}
+
+/* Remove right border from last header cell */
+thead th:last-child {
+    border-right: none;
+}
+
+/* -------------------------------------------
+   Table Body (tbody)
+   Data rows with alternating backgrounds
+   ------------------------------------------- */
+tbody td {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    border-bottom: 1px solid #e8e8e8;
+    color: #444444;
+}
+
+/* -------------------------------------------
+   Zebra Striping
+   Even rows get a light background using
+   nth-child(even) selector
+   ------------------------------------------- */
+tbody tr:nth-child(even) {
+    background-color: #f4f7fa;
+}
+
+/* -------------------------------------------
+   Row Hover Effect
+   Highlights the row when mouse is over it
+   ------------------------------------------- */
+tbody tr:hover {
+    background-color: #e8f0fe;
+    transition: background-color 0.2s ease;
+}
+
+/* First column styling - event IDs */
+tbody td:first-child {
+    font-weight: bold;
+    color: #1d3557;
+    font-family: 'Courier New', monospace;
+}
+
+/* Second column - event names (left-aligned for readability) */
+tbody td:nth-child(2) {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* -------------------------------------------
+   Status Badges
+   Color-coded status labels in the table
+   ------------------------------------------- */
+.status {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Confirmed status - green */
+.status.confirmed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Pending status - yellow */
+.status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Cancelled status - red */
+.status.cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* -------------------------------------------
+   Events Admin Table
+   Main table with full styling
+   ------------------------------------------- */
+.events-table {
+    min-width: 700px;
+}
+
+/* First column wider for event names */
+.events-table td:nth-child(2),
+.events-table th:nth-child(2) {
+    min-width: 180px;
+}
+
+/* -------------------------------------------
+   Volunteer Table
+   Simpler table for volunteer data
+   ------------------------------------------- */
+.volunteer-table thead {
+    background-color: #457b9d;
+}
+
+.volunteer-table thead th {
+    border-right: 1px solid #5a8fae;
+}
+
+/* Volunteer table - name and email left-aligned */
+.volunteer-table td:first-child,
+.volunteer-table td:nth-child(2) {
+    text-align: left;
+}
+
+.volunteer-table td:nth-child(2) {
+    color: #457b9d;
+    font-size: 0.85rem;
+}
+
+/* -------------------------------------------
+   Stats Table
+   Compact summary table
+   ------------------------------------------- */
+.stats-table {
+    max-width: 400px;
+}
+
+.stats-table thead {
+    background-color: #2a9d8f;
+}
+
+.stats-table thead th {
+    border-right: 1px solid #3ab5a7;
+}
+
+/* Metric label - left aligned */
+.stats-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Value column - right aligned */
+.stats-table td:nth-child(2) {
+    text-align: right;
+    font-weight: bold;
+    color: #1d3557;
+    font-size: 1rem;
+}
+
+/* Last row in stats highlighted */
+.stats-table tbody tr:last-child {
+    background-color: #e8f5e9;
+    font-weight: bold;
+}
+
+.stats-table tbody tr:last-child td {
+    border-bottom: none;
+    border-top: 2px solid #2a9d8f;
+}
+
+/* -------------------------------------------
+   Site Footer
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+}

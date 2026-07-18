@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal - Debug and Test with Dev Tools</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Local Community Event Portal</h1>
+        <p>Debug and Test with Chrome DevTools</p>
+    </header>
+
+    <main>
+        <!-- Instructions section -->
+        <section class="instructions-section">
+            <h2>DevTools Debugging Practice</h2>
+            <div class="tip-box">
+                <h3>Open Chrome DevTools</h3>
+                <p>Press <kbd>F12</kbd> or <kbd>Ctrl+Shift+I</kbd> (Windows) / <kbd>Cmd+Option+I</kbd> (Mac) to open DevTools.</p>
+            </div>
+        </section>
+
+        <!-- Tips section for debugging -->
+        <section class="tips-section">
+            <h2>Chrome DevTools Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>Inspect Elements</h3>
+                    <p>Right-click any element and select "Inspect" to see its HTML and CSS. The Styles panel shows all applied rules.</p>
+                    <code>Right-click > Inspect</code>
+                </div>
+                <div class="tip-card">
+                    <h3>Toggle Classes</h3>
+                    <p>In the Elements panel, click the <strong>+</strong> button in the Classes section to add/remove CSS classes dynamically.</p>
+                    <code>.element.classList.toggle('active')</code>
+                </div>
+                <div class="tip-card">
+                    <h3>Box Model Visualizer</h3>
+                    <p>Click any element in the Elements tab to see its box model in the Computed tab. Hover over each part to highlight margins, borders, and padding.</p>
+                    <code>Elements > Computed</code>
+                </div>
+                <div class="tip-card">
+                    <h3>Device Toolbar</h3>
+                    <p>Toggle the device toolbar to preview your page on different screen sizes. Press <kbd>Ctrl+Shift+M</kbd>.</p>
+                    <code>Ctrl+Shift+M</code>
+                </div>
+                <div class="tip-card">
+                    <h3>Console Logging</h3>
+                    <p>Open the Console tab to see JavaScript output. Check for errors, warnings, and log messages from your scripts.</p>
+                    <code>console.log('Debug message')</code>
+                </div>
+                <div class="tip-card">
+                    <h3>Network Tab</h3>
+                    <p>Monitor network requests to see if CSS files, images, and scripts are loading correctly. Look for 404 errors.</p>
+                    <code>F12 > Network</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive debugging demo -->
+        <section class="demo-section">
+            <h2>Interactive Debugging Demo</h2>
+            <p>Open the Console tab (F12 > Console) to see log messages from this page.</p>
+
+            <div class="eventCard">
+                <h3>Community Clean-Up Day</h3>
+                <p>Saturday, July 29, 2026 - Volunteers needed!</p>
+                <div class="card-meta">
+                    <span class="meta-item">Location: Citywide</span>
+                    <span class="meta-item">Time: 9:00 AM</span>
+                </div>
+            </div>
+
+            <div class="eventCard highlighted">
+                <h3>Annual Town Fair</h3>
+                <p>Three days of rides, food, and fun!</p>
+                <div class="card-meta">
+                    <span class="meta-item">Location: Central Park</span>
+                    <span class="meta-item">Time: All Day</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common errors section -->
+        <section class="errors-section">
+            <h2>Common CSS Errors to Debug</h2>
+            <table class="errors-table">
+                <thead>
+                    <tr>
+                        <th>Error Type</th>
+                        <th>Symptom</th>
+                        <th>DevTools Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Missing semicolon</td>
+                        <td>Property below doesn't apply</td>
+                        <td>Check Styles panel for red error icon</td>
+                    </tr>
+                    <tr>
+                        <td>Wrong selector</td>
+                        <td>Styles not targeting element</td>
+                        <td>Check specificity in Computed tab</td>
+                    </tr>
+                    <tr>
+                        <td>Typo in property</td>
+                        <td>Property shows strikethrough</td>
+                        <td>Invalid properties are struck through in Styles</td>
+                    </tr>
+                    <tr>
+                        <td>Missing closing brace</td>
+                        <td>All styles below break</td>
+                        <td>Check Console for parse errors</td>
+                    </tr>
+                    <tr>
+                        <td>Incorrect units</td>
+                        <td>Layout looks wrong</td>
+                        <td>Edit values live in Styles panel to test</td>
+                    </tr>
+                    <tr>
+                        <td>Z-index conflict</td>
+                        <td>Element hidden behind another</td>
+                        <td>Check stacking context in Elements panel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Practice exercise -->
+        <section class="practice-section">
+            <h2>Practice Exercise</h2>
+            <p>Use DevTools to fix the following issues on this page:</p>
+            <ol class="practice-list">
+                <li>Change the header background color to <code>#2a9d8f</code> using the Styles panel</li>
+                <li>Add a <code>border-radius: 15px</code> to the highlighted event card</li>
+                <li>Find and fix the intentionally hidden text in the practice box below</li>
+                <li>Use the device toolbar to check responsiveness at 375px width</li>
+                <li>Check the Console for any JavaScript log messages</li>
+            </ol>
+
+            <div class="practice-box">
+                <p>This text is visible.</p>
+                <!-- Try to find and fix the hidden text using DevTools -->
+                <p class="hidden-text">Congratulations! You found the hidden message. Debugging skills: unlocked.</p>
+                <p>This text is also visible.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Local Community Event Portal</p>
+    </footer>
+
+    <!-- JavaScript for console.log debugging practice -->
+    <script>
+        /*
+         * ===========================================
+         * Console Log Messages for Debugging Practice
+         * Open F12 > Console to see these messages
+         * ===========================================
+         */
+
+        // Page load confirmation
+        console.log('[PORTAL] Page loaded successfully at', new Date().toLocaleString());
+
+        // Event data for debugging
+        var events = [
+            { name: 'Summer Block Party', date: 'Jul 25, 2026', status: 'confirmed' },
+            { name: 'Annual Town Fair', date: 'Aug 15-17, 2026', status: 'pending' },
+            { name: 'Community Clean-Up Day', date: 'Jul 29, 2026', status: 'confirmed' }
+        ];
+
+        // Log event data as a table
+        console.table(events);
+
+        // Log a warning for practice
+        console.warn('[PORTAL] This is a practice warning message for debugging exercise');
+
+        // Log information
+        console.info('[PORTAL] DevTools Debugging Exercise - Check all console messages');
+
+        // Function that logs when called
+        function registerForEvent(eventName) {
+            console.log('[PORTAL] Registering for:', eventName);
+            return 'Registration submitted for ' + eventName;
+        }
+
+        // Log function availability
+        console.log('[PORTAL] Tip: Type registerForEvent("Block Party") in the console to test');
+
+        // Track page interactions
+        document.addEventListener('click', function(e) {
+            console.log('[PORTAL] Click detected on:', e.target.tagName,
+                        e.target.className ? '(' + e.target.className + ')' : '');
+        });
+
+        // Console group for organized output
+        console.group('[PORTAL] Available Debug Commands');
+        console.log('registerForEvent(eventName) - Register for an event');
+        console.log('events - View all event data');
+        console.log('document.querySelectorAll(".eventCard") - Find all event cards');
+        console.groupEnd();
+    </script>
+</body>
+</html>

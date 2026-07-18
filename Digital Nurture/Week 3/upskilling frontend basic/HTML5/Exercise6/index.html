@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Feedback</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+        }
+        header {
+            background: linear-gradient(135deg, #16a085, #1abc9c);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2rem; }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card h2 {
+            color: #16a085;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1abc9c;
+        }
+        .feedback-msg {
+            padding: 0.8rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            display: none;
+        }
+        .feedback-msg.success {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .feedback-msg.error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .feedback-msg.info {
+            display: block;
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .char-count {
+            text-align: right;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+        .event-image {
+            max-width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 3px solid #ddd;
+        }
+        .event-image.enlarged {
+            transform: scale(1.5);
+            position: relative;
+            z-index: 10;
+        }
+        .img-container {
+            text-align: center;
+            overflow: visible;
+            padding: 1rem;
+        }
+        .img-hint {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        .submit-btn {
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #16a085, #1abc9c);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .submit-btn:hover { opacity: 0.9; }
+        .fee-display {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #fff3cd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>Local Community Event Portal</h1>
+        <p>Event Feedback &amp; Interaction</p>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Card 1: onblur phone validation -->
+        <div class="card">
+            <h2>Contact Information</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input 
+                        type="text" 
+                        id="phone" 
+                        placeholder="(555) 123-4567"
+                        onblur="validatePhone(this)"
+                    >
+                    <div id="phoneFeedback" class="feedback-msg"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: onchange dropdown for event fee -->
+        <div class="card">
+            <h2>Select Event (onchange demo)</h2>
+            <div class="form-group">
+                <label for="eventSelect">Choose an Event</label>
+                <select id="eventSelect" onchange="displayFee(this)">
+                    <option value="0">-- Select Event --</option>
+                    <option value="0">Summer Music Festival</option>
+                    <option value="5">Community Food Fair</option>
+                    <option value="10">Family Sports Day</option>
+                    <option value="0">Art in the Park</option>
+                    <option value="8">Craft Workshop</option>
+                </select>
+                <div id="feeDisplay" class="fee-display" style="display:none;"></div>
+            </div>
+        </div>
+
+        <!-- Card 3: ondblclick image -->
+        <div class="card">
+            <h2>Event Preview Image (Double-click to enlarge)</h2>
+            <div class="img-container">
+                <img 
+                    src="https://picsum.photos/seed/community/500/300" 
+                    alt="Community event preview" 
+                    class="event-image" 
+                    id="eventImage"
+                    ondblclick="toggleEnlarge(this)"
+                    title="Double-click to enlarge"
+                >
+                <div class="img-hint">Double-click the image to toggle enlargement</div>
+            </div>
+        </div>
+
+        <!-- Card 4: keydown textarea with character count -->
+        <div class="card">
+            <h2>Your Feedback (keydown character counter)</h2>
+            <div class="form-group">
+                <label for="feedback">Write your feedback</label>
+                <textarea 
+                    id="feedback" 
+                    rows="5" 
+                    placeholder="Tell us about your experience..."
+                    onkeydown="countChars(this)"
+                    onkeyup="countChars(this)"
+                    maxlength="300"
+                ></textarea>
+                <div class="char-count"><span id="charCount">0</span> / 300 characters</div>
+            </div>
+        </div>
+
+        <!-- Card 5: onclick submit -->
+        <div class="card">
+            <h2>Submit Feedback</h2>
+            <button class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+            <div id="submitResult" class="feedback-msg"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // onblur: Validate phone number format
+        function validatePhone(input) {
+            var feedback = document.getElementById('phoneFeedback');
+            var phone = input.value.trim();
+            if (phone === '') {
+                feedback.className = 'feedback-msg';
+                feedback.style.display = 'none';
+                return;
+            }
+            var phonePattern = /^[\d\s\-\(\)\+]{7,15}$/;
+            if (phonePattern.test(phone)) {
+                feedback.textContent = 'Valid phone number format.';
+                feedback.className = 'feedback-msg success';
+            } else {
+                feedback.textContent = 'Invalid phone number. Please use format: (555) 123-4567';
+                feedback.className = 'feedback-msg error';
+            }
+        }
+
+        // onchange: Display selected event fee
+        function displayFee(select) {
+            var feeDisplay = document.getElementById('feeDisplay');
+            var fee = parseInt(select.value);
+            var eventName = select.options[select.selectedIndex].text;
+            if (select.value === '0' && select.selectedIndex === 0) {
+                feeDisplay.style.display = 'none';
+                return;
+            }
+            feeDisplay.style.display = 'block';
+            if (fee === 0) {
+                feeDisplay.textContent = eventName + ': FREE';
+                feeDisplay.style.color = '#27ae60';
+            } else {
+                feeDisplay.textContent = eventName + ': $' + fee + '.00';
+                feeDisplay.style.color = '#e74c3c';
+            }
+        }
+
+        // ondblclick: Toggle image enlargement
+        function toggleEnlarge(img) {
+            img.classList.toggle('enlarged');
+            if (img.classList.contains('enlarged')) {
+                img.title = 'Double-click to shrink';
+            } else {
+                img.title = 'Double-click to enlarge';
+            }
+        }
+
+        // keydown: Character count
+        function countChars(textarea) {
+            document.getElementById('charCount').textContent = textarea.value.length;
+        }
+
+        // onclick: Submit feedback confirmation
+        function submitFeedback() {
+            var result = document.getElementById('submitResult');
+            var feedbackText = document.getElementById('feedback').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var event = document.getElementById('eventSelect').value;
+
+            if (!phone && !feedbackText) {
+                result.textContent = 'Please fill in at least your phone number or feedback.';
+                result.className = 'feedback-msg error';
+                return;
+            }
+            result.textContent = 'Thank you for your feedback! Your response has been recorded. We appreciate your input for improving our community events.';
+            result.className = 'feedback-msg success';
+            document.getElementById('feedback').value = '';
+            document.getElementById('charCount').textContent = '0';
+        }
+    </script>
+
+</body>
+</html>

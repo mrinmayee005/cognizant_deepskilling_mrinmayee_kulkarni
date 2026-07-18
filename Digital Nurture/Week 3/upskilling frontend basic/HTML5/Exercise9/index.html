@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Nearby Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+        }
+        header {
+            background: linear-gradient(135deg, #1a5276, #2980b9);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2rem; }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card h2 {
+            color: #1a5276;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .find-btn {
+            padding: 0.85rem 2rem;
+            background: linear-gradient(135deg, #1a5276, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        .find-btn:hover { opacity: 0.9; }
+        .find-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        .location-display {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: none;
+        }
+        .location-display.success {
+            display: block;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .location-display.error {
+            display: block;
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .location-display.loading {
+            display: block;
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            text-align: center;
+        }
+        .location-display h3 {
+            margin-bottom: 0.8rem;
+        }
+        .coords-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .coord-item {
+            background: white;
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+        .coord-item .label {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+        .coord-item .value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .nearby-events {
+            margin-top: 1.5rem;
+        }
+        .nearby-events h3 {
+            color: #1a5276;
+            margin-bottom: 0.8rem;
+        }
+        .event-item {
+            background: #f8f9fa;
+            border-left: 4px solid #2980b9;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .event-item h4 {
+            color: #2c3e50;
+        }
+        .event-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .event-item .distance {
+            display: inline-block;
+            background: #2980b9;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #2980b9;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>Local Community Event Portal</h1>
+        <p>Find Nearby Events with Geolocation</p>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Find Events Card -->
+        <div class="card">
+            <h2>Discover Events Near You</h2>
+            <p style="margin-bottom: 1rem; color: #666;">
+                Allow location access to find community events happening in your area. 
+                We use high-accuracy GPS positioning for the best results.
+            </p>
+
+            <button class="find-btn" id="findBtn" onclick="findNearbyEvents()">
+                Find Nearby Events
+            </button>
+
+            <div id="locationStatus" class="location-display"></div>
+
+            <div id="nearbyEvents" class="nearby-events" style="display:none;"></div>
+        </div>
+
+        <!-- About Geolocation -->
+        <div class="card">
+            <h2>How It Works</h2>
+            <p>This feature uses the HTML5 Geolocation API to determine your current location. Here's what happens:</p>
+            <ul style="margin: 1rem 0 0 1.5rem;">
+                <li>Your browser will ask for permission to access your location</li>
+                <li>We use <strong>high accuracy mode</strong> for precise positioning</li>
+                <li>A timeout of 10 seconds ensures the app doesn't hang</li>
+                <li>Maximum age of 5 minutes ensures fresh location data</li>
+                <li>Your location is <strong>never stored or transmitted</strong> - it stays on your device</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function findNearbyEvents() {
+            var btn = document.getElementById('findBtn');
+            var status = document.getElementById('locationStatus');
+            var eventsDiv = document.getElementById('nearbyEvents');
+
+            // Check if geolocation is supported
+            if (!navigator.geolocation) {
+                status.className = 'location-display error';
+                status.innerHTML = '<h3>Geolocation Not Supported</h3>' +
+                    '<p>Your browser does not support the Geolocation API. Please try a modern browser like Chrome, Firefox, or Edge.</p>';
+                return;
+            }
+
+            // Show loading state
+            btn.disabled = true;
+            btn.textContent = 'Locating...';
+            status.className = 'location-display loading';
+            status.innerHTML = '<span class="loading-spinner"></span> Detecting your location...';
+            eventsDiv.style.display = 'none';
+
+            // Geolocation options for high accuracy
+            var options = {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 300000
+            };
+
+            navigator.geolocation.getCurrentPosition(
+                // Success callback
+                function(position) {
+                    var lat = position.coords.latitude;
+                    var lon = position.coords.longitude;
+                    var accuracy = position.coords.accuracy;
+
+                    status.className = 'location-display success';
+                    status.innerHTML = '<h3>Location Found!</h3>' +
+                        '<p>Your current coordinates:</p>' +
+                        '<div class="coords-grid">' +
+                            '<div class="coord-item">' +
+                                '<div class="label">Latitude</div>' +
+                                '<div class="value">' + lat.toFixed(6) + '</div>' +
+                            '</div>' +
+                            '<div class="coord-item">' +
+                                '<div class="label">Longitude</div>' +
+                                '<div class="value">' + lon.toFixed(6) + '</div>' +
+                            '</div>' +
+                            '<div class="coord-item">' +
+                                '<div class="label">Accuracy</div>' +
+                                '<div class="value">~' + Math.round(accuracy) + 'm</div>' +
+                            '</div>' +
+                            '<div class="coord-item">' +
+                                '<div class="label">Timestamp</div>' +
+                                '<div class="value">' + new Date(position.timestamp).toLocaleTimeString() + '</div>' +
+                            '</div>' +
+                        '</div>';
+
+                    // Show nearby events (simulated based on location)
+                    showNearbyEvents(lat, lon);
+
+                    btn.disabled = false;
+                    btn.textContent = 'Find Nearby Events';
+                },
+                // Error callback
+                function(error) {
+                    btn.disabled = false;
+                    btn.textContent = 'Find Nearby Events';
+
+                    var errorMsg = '';
+                    var errorTitle = 'Location Error';
+
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            errorTitle = 'Permission Denied';
+                            errorMsg = '<p>You denied location access. To use this feature, please:</p>' +
+                                '<ul style="margin: 0.5rem 0 0 1.5rem;">' +
+                                '<li>Click the location icon in your browser\'s address bar</li>' +
+                                '<li>Select "Allow" for location access</li>' +
+                                '<li>Refresh the page and try again</li>' +
+                                '</ul>';
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            errorTitle = 'Position Unavailable';
+                            errorMsg = '<p>Your location could not be determined. This may happen because:</p>' +
+                                '<ul style="margin: 0.5rem 0 0 1.5rem;">' +
+                                '<li>You are not connected to the internet</li>' +
+                                '<li>Your device\'s GPS is turned off</li>' +
+                                '<li>You are in an area with poor signal</li>' +
+                                '</ul>';
+                            break;
+                        case error.TIMEOUT:
+                            errorTitle = 'Request Timed Out';
+                            errorMsg = '<p>The location request took too long (>10 seconds). Please check your connection and try again.</p>';
+                            break;
+                        default:
+                            errorMsg = '<p>An unknown error occurred. Please try again later.</p>';
+                    }
+
+                    status.className = 'location-display error';
+                    status.innerHTML = '<h3>' + errorTitle + '</h3>' + errorMsg;
+                },
+                options
+            );
+        }
+
+        // Show simulated nearby events
+        function showNearbyEvents(lat, lon) {
+            var eventsDiv = document.getElementById('nearbyEvents');
+            var events = [
+                { name: 'Summer Music Festival', venue: 'Central Park', date: 'July 25, 2026', dist: '0.5 km' },
+                { name: 'Community Food Fair', venue: 'Town Square', date: 'August 5, 2026', dist: '1.2 km' },
+                { name: 'Family Sports Day', venue: 'Sports Center', date: 'August 15, 2026', dist: '2.1 km' },
+                { name: 'Outdoor Movie Night', venue: 'Riverside Park', date: 'August 20, 2026', dist: '3.4 km' }
+            ];
+
+            var html = '<h3>Nearby Events in Your Area</h3>';
+            for (var i = 0; i < events.length; i++) {
+                var e = events[i];
+                html += '<div class="event-item">' +
+                    '<h4>' + e.name + '</h4>' +
+                    '<p>Venue: ' + e.venue + ' | Date: ' + e.date + '</p>' +
+                    '<span class="distance">' + e.dist + ' away</span>' +
+                    '</div>';
+            }
+            eventsDiv.innerHTML = html;
+            eventsDiv.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

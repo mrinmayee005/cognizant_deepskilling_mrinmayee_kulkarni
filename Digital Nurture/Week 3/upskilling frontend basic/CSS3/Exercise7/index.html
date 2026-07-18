@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal - Table Styling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Local Community Event Portal</h1>
+        <p>Events Administration Dashboard</p>
+    </header>
+
+    <main>
+        <!-- Main events admin table -->
+        <section class="table-section">
+            <h2>Upcoming Events - Admin View</h2>
+            <div class="table-wrapper">
+                <table class="events-table">
+                    <thead>
+                        <tr>
+                            <th>Event ID</th>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                            <th>Attendees</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EVT-001</td>
+                            <td>Summer Block Party</td>
+                            <td>Jul 25, 2026</td>
+                            <td>10:00 AM</td>
+                            <td>Main Street</td>
+                            <td>156</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>EVT-002</td>
+                            <td>Farmers Market Opening</td>
+                            <td>Aug 1, 2026</td>
+                            <td>8:00 AM</td>
+                            <td>Town Square</td>
+                            <td>89</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>EVT-003</td>
+                            <td>Evening Jazz in the Park</td>
+                            <td>Jul 27, 2026</td>
+                            <td>7:00 PM</td>
+                            <td>Riverside Park</td>
+                            <td>210</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>EVT-004</td>
+                            <td>Community Clean-Up Day</td>
+                            <td>Jul 29, 2026</td>
+                            <td>9:00 AM</td>
+                            <td>Citywide</td>
+                            <td>45</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>EVT-005</td>
+                            <td>Youth Art Exhibition</td>
+                            <td>Jul 28, 2026</td>
+                            <td>2:00 PM</td>
+                            <td>Community Center</td>
+                            <td>73</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>EVT-006</td>
+                            <td>Annual Town Fair</td>
+                            <td>Aug 15-17, 2026</td>
+                            <td>All Day</td>
+                            <td>Central Park</td>
+                            <td>1200</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>EVT-007</td>
+                            <td>Senior Citizens Tea</td>
+                            <td>Jul 31, 2026</td>
+                            <td>3:00 PM</td>
+                            <td>Elm Community Hall</td>
+                            <td>32</td>
+                            <td><span class="status cancelled">Cancelled</span></td>
+                        </tr>
+                        <tr>
+                            <td>EVT-008</td>
+                            <td>Neighborhood Watch Meeting</td>
+                            <td>Aug 5, 2026</td>
+                            <td>6:30 PM</td>
+                            <td>Town Hall Room B</td>
+                            <td>28</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Volunteer registration table -->
+        <section class="table-section">
+            <h2>Volunteer Sign-Ups</h2>
+            <div class="table-wrapper">
+                <table class="volunteer-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Event Assigned</th>
+                            <th>Role</th>
+                            <th>Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Garcia</td>
+                            <td>maria.g@email.com</td>
+                            <td>Summer Block Party</td>
+                            <td>Setup Coordinator</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>James Wilson</td>
+                            <td>j.wilson@email.com</td>
+                            <td>Farmers Market</td>
+                            <td>Vendor Liaison</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Priya Patel</td>
+                            <td>priya.p@email.com</td>
+                            <td>Community Clean-Up</td>
+                            <td>Team Leader</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>David Kim</td>
+                            <td>d.kim@email.com</td>
+                            <td>Youth Art Exhibition</td>
+                            <td>Gallery Assistant</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Johnson</td>
+                            <td>sarah.j@email.com</td>
+                            <td>Annual Town Fair</td>
+                            <td>Information Booth</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Summary stats -->
+        <section class="table-section">
+            <h2>Quick Stats</h2>
+            <div class="table-wrapper">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Events</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Confirmed</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Pending</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Cancelled</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Total Volunteers</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Total Volunteer Hours</td>
+                            <td>31</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Local Community Event Portal - Admin Dashboard</p>
+    </footer>
+</body>
+</html>

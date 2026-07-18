@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Navigation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 1rem 2rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        nav h1 {
+            font-size: 1.5rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        nav ul li a.help-link {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+            scroll-margin-top: 80px;
+        }
+        section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        section p {
+            margin-bottom: 0.8rem;
+        }
+        .event-card {
+            background: white;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .event-card h3 {
+            color: #2980b9;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <h1>Community Events</h1>
+            <ul>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="help.html" target="_blank" class="help-link">Help (new tab)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <div class="event-card">
+                <h3>Summer Music Festival</h3>
+                <p>Date: July 25, 2026 | Venue: Central Park</p>
+                <p>Enjoy live music performances from local bands and artists. Free entry for all community members.</p>
+            </div>
+            <div class="event-card">
+                <h3>Community Food Fair</h3>
+                <p>Date: August 5, 2026 | Venue: Town Square</p>
+                <p>Taste delicious dishes from local restaurants and food vendors. Family-friendly activities included.</p>
+            </div>
+            <div class="event-card">
+                <h3>Family Sports Day</h3>
+                <p>Date: August 15, 2026 | Venue: Community Sports Center</p>
+                <p>Sports competitions, relay races, and fun activities for all ages. Prizes for winners!</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Our Portal</h2>
+            <p>The Local Community Event Portal is your one-stop destination for discovering and participating in community events. We aim to bring neighbors together and strengthen community bonds.</p>
+            <p>Our team works closely with local organizers to ensure you never miss out on exciting activities happening in your area.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p><strong>Email:</strong> info@communityevents.com</p>
+            <p><strong>Phone:</strong> (555) 123-4567</p>
+            <p><strong>Address:</strong> 123 Community Lane, Townsville</p>
+            <p>Have questions or suggestions? Reach out to us anytime!</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

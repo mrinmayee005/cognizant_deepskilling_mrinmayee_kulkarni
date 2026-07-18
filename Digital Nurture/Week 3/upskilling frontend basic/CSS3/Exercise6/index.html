@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal - Link and List Styling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Local Community Event Portal</h1>
+    </header>
+
+    <!-- Styled Navigation Menu -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#events" class="nav-link">Events</a></li>
+            <li><a href="#calendar" class="nav-link">Calendar</a></li>
+            <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Events section with styled lists -->
+        <section class="content-section">
+            <h2>This Week's Events</h2>
+
+            <!-- Unordered list with default styling -->
+            <div class="list-demo">
+                <h3>Event Highlights</h3>
+                <ul class="event-highlights">
+                    <li>Summer Block Party - July 25</li>
+                    <li>Farmers Market - Every Saturday</li>
+                    <li>Live Jazz at Riverside - July 27</li>
+                    <li>Youth Art Exhibition - July 28</li>
+                    <li>Community Garden Workshop - July 30</li>
+                </ul>
+            </div>
+
+            <!-- Ordered list for schedule -->
+            <div class="list-demo">
+                <h3>Day-of Schedule</h3>
+                <ol class="schedule-list">
+                    <li>Registration and Check-in (9:00 AM)</li>
+                    <li>Opening Ceremony (10:00 AM)</li>
+                    <li>Community Lunch (12:00 PM)</li>
+                    <li>Afternoon Activities (1:00 PM)</li>
+                    <li>Closing Remarks and Awards (5:00 PM)</li>
+                </ol>
+            </div>
+
+            <!-- Description list for event details -->
+            <div class="list-demo">
+                <h3>Event Details</h3>
+                <dl class="details-list">
+                    <dt>Venue</dt>
+                    <dd>Central Community Park, 123 Main Street</dd>
+                    <dt>Date</dt>
+                    <dd>Saturday, July 25, 2026</dd>
+                    <dt>Time</dt>
+                    <dd>10:00 AM - 6:00 PM</dd>
+                    <dt>Admission</dt>
+                    <dd>Free for all community members</dd>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Navigation links demonstration -->
+        <section class="content-section">
+            <h2>Useful Links</h2>
+            <p>Visit the links below to learn more about our community:</p>
+            <ul class="styled-links">
+                <li><a href="https://example.com/parks" target="_blank">City Parks Department</a></li>
+                <li><a href="https://example.com/library" target="_blank">Public Library Events</a></li>
+                <li><a href="https://example.com/transit" target="_blank">Public Transit Schedule</a></li>
+                <li><a href="https://example.com/volunteer" target="_blank">Volunteer Opportunities</a></li>
+                <li><a href="https://example.com/emergency" target="_blank">Emergency Services</a></li>
+            </ul>
+        </section>
+
+        <!-- Sidebar-style list -->
+        <section class="content-section two-column">
+            <div class="column">
+                <h2>Quick Links</h2>
+                <ul class="sidebar-links">
+                    <li><a href="#register">Register for Events</a></li>
+                    <li><a href="#newsletter">Subscribe to Newsletter</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                    <li><a href="#feedback">Provide Feedback</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Categories</h2>
+                <ul class="category-list">
+                    <li><a href="#sports">Sports & Recreation</a></li>
+                    <li><a href="#arts">Arts & Culture</a></li>
+                    <li><a href="#education">Education & Workshops</a></li>
+                    <li><a href="#charity">Charity & Fundraisers</a></li>
+                    <li><a href="#social">Social Gatherings</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Visited link demo note -->
+        <section class="content-section">
+            <h2>Link States</h2>
+            <p>Try hovering over and clicking the links on this page to see the different pseudo-class states:</p>
+            <ul class="state-list">
+                <li><span class="state-demo normal-link">:link</span> - Default unvisited state (blue)</li>
+                <li><span class="state-demo visited-link">:visited</span> - Previously visited state (purple)</li>
+                <li><span class="state-demo hover-link">:hover</span> - Mouse pointer over link (red)</li>
+                <li><span class="state-demo active-link">:active</span> - Link being clicked (dark red)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Local Community Event Portal</p>
+    </footer>
+</body>
+</html>

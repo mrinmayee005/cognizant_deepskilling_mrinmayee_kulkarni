@@ -1,0 +1,109 @@
+/*
+    =============================================
+    External Stylesheet - styles.css
+    Exercise 1: Inline vs Internal vs External CSS
+    Theme: Local Community Event Portal
+    =============================================
+*/
+
+/* -------------------------------------------
+   Header Styles
+   ------------------------------------------- */
+header {
+    background-color: #1d3557;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    color: #a8dadc;
+}
+
+/* -------------------------------------------
+   Main Content Container
+   ------------------------------------------- */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* -------------------------------------------
+   Event Section
+   ------------------------------------------- */
+.event-section {
+    margin-bottom: 2rem;
+}
+
+.event-section h2 {
+    color: #1d3557;
+    border-bottom: 2px solid #457b9d;
+    padding-bottom: 0.5rem;
+}
+
+/* -------------------------------------------
+   Event Card Component
+   ------------------------------------------- */
+.event-card {
+    background-color: #ffffff;
+    border-left: 4px solid #e63946;
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Event card title styling */
+.event-title {
+    margin: 0 0 0.5rem 0;
+    color: #1d3557;
+    font-size: 1.25rem;
+}
+
+/* Event date and location */
+.event-date {
+    color: #457b9d;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin: 0.25rem 0;
+}
+
+/* Event description text */
+.event-description {
+    color: #555555;
+    line-height: 1.5;
+    margin: 0.5rem 0 0 0;
+}
+
+/* -------------------------------------------
+   Info Section
+   ------------------------------------------- */
+.info-section {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-section ul {
+    padding-left: 1.5rem;
+}
+
+.info-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* -------------------------------------------
+   Footer
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}

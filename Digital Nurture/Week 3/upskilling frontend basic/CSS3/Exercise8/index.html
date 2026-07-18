@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal - Box Model and Layout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Local Community Event Portal</h1>
+        <p>Box Model and Layout Control Demonstration</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#cards">Event Cards</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#spacing">Spacing</a></li>
+            <li><a href="#visibility">Visibility</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Event Cards demonstrating border, padding, margin -->
+        <section id="cards" class="content-section">
+            <h2>Event Cards - Box Model in Action</h2>
+
+            <!-- Card with full box model -->
+            <div class="eventCard">
+                <h3>Summer Block Party</h3>
+                <p>Join your neighbors for food, music, and fun at the annual block party on Main Street.</p>
+                <div class="card-footer">
+                    <span class="date">July 25, 2026</span>
+                    <a href="#" class="btn-small">Register</a>
+                </div>
+            </div>
+
+            <!-- Card with different border styles -->
+            <div class="eventCard featured-card">
+                <span class="featured-label">Featured</span>
+                <h3>Annual Town Fair</h3>
+                <p>Three days of rides, food vendors, live entertainment, and community spirit at Central Park.</p>
+                <div class="card-footer">
+                    <span class="date">August 15-17, 2026</span>
+                    <a href="#" class="btn-small">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Card with outline instead of border -->
+            <div class="eventCard outline-card">
+                <h3>Neighborhood Watch Meeting</h3>
+                <p>Monthly meeting to discuss community safety initiatives and coordinate volunteer patrols.</p>
+                <div class="card-footer">
+                    <span class="date">August 5, 2026</span>
+                    <a href="#" class="btn-small">RSVP</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form section demonstrating outline on focus -->
+        <section id="forms" class="content-section">
+            <h2>Event Registration Form</h2>
+            <form class="registration-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="eventSelect">Select Event</label>
+                    <select id="eventSelect">
+                        <option value="">Choose an event...</option>
+                        <option value="block-party">Summer Block Party</option>
+                        <option value="town-fair">Annual Town Fair</option>
+                        <option value="jazz">Evening Jazz in the Park</option>
+                        <option value="cleanup">Community Clean-Up Day</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message (Optional)</label>
+                    <textarea id="message" rows="3" placeholder="Any special requirements?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Registration</button>
+            </form>
+        </section>
+
+        <!-- Spacing comparison section -->
+        <section id="spacing" class="content-section">
+            <h2>Spacing Comparison</h2>
+            <div class="spacing-demo">
+                <div class="box small-margin">
+                    <p>Small margin (8px)</p>
+                </div>
+                <div class="box medium-margin">
+                    <p>Medium margin (24px)</p>
+                </div>
+                <div class="box large-margin">
+                    <p>Large margin (48px)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visibility vs display:none demo -->
+        <section id="visibility" class="content-section">
+            <h2>Visibility vs Display: None</h2>
+            <p>Toggle buttons below to see the difference between <code>visibility: hidden</code> and <code>display: none</code>.</p>
+
+            <div class="toggle-controls">
+                <button type="button" class="toggle-btn" onclick="toggleVisibility()">Toggle Visibility</button>
+                <button type="button" class="toggle-btn" onclick="toggleDisplay()">Toggle Display</button>
+            </div>
+
+            <div class="demo-boxes">
+                <div class="demo-box" id="visibilityBox">
+                    <p><strong>visibility: hidden</strong><br>Space is preserved. This box still takes up room.</p>
+                </div>
+                <div class="demo-box" id="displayBox">
+                    <p><strong>display: none</strong><br>Space is removed. This box collapses entirely.</p>
+                </div>
+            </div>
+
+            <!-- Comparison table -->
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>visibility: hidden</th>
+                        <th>display: none</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Visible?</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Space preserved?</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Interactive?</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Layout impact?</td>
+                        <td>Takes up space</td>
+                        <td>Collapses entirely</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Local Community Event Portal</p>
+    </footer>
+
+    <script>
+        // Toggle visibility: hidden on the first box
+        function toggleVisibility() {
+            var box = document.getElementById("visibilityBox");
+            if (box.style.visibility === "hidden") {
+                box.style.visibility = "visible";
+            } else {
+                box.style.visibility = "hidden";
+            }
+        }
+
+        // Toggle display: none on the second box
+        function toggleDisplay() {
+            var box = document.getElementById("displayBox");
+            if (box.style.display === "none") {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

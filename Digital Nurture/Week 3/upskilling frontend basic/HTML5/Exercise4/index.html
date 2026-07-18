@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Image Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+        }
+        header {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2rem;
+        }
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Table Styling */
+        .gallery-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 10px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .gallery-table caption {
+            caption-side: top;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8e44ad;
+            padding: 1rem;
+            background: #f5f0fa;
+            text-align: center;
+        }
+        .gallery-table td {
+            padding: 8px;
+            text-align: center;
+            vertical-align: top;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 2px solid #e8e8e8;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+        .gallery-table td:hover {
+            border-color: #9b59b6;
+            transform: translateY(-2px);
+        }
+        .gallery-table img {
+            width: 100%;
+            max-width: 280px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            margin: 0 auto 0.5rem;
+        }
+        .gallery-table .img-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .gallery-table .img-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>Local Community Event Portal</h1>
+        <p>Event Photo Gallery</p>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <h2 class="section-title">Past Event Highlights</h2>
+
+        <table class="gallery-table">
+            <caption>Gallery of Community Events - 2026 Season</caption>
+            <tr>
+                <td>
+                    <img 
+                        src="https://picsum.photos/seed/music/400/300" 
+                        alt="Live music performance at the community festival" 
+                        title="Summer Music Festival 2025"
+                    >
+                    <div class="img-title">Summer Music Festival</div>
+                    <div class="img-desc">Live performances at Central Park</div>
+                </td>
+                <td>
+                    <img 
+                        src="https://picsum.photos/seed/food/400/300" 
+                        alt="Colorful food stalls at the community food fair" 
+                        title="Community Food Fair 2025"
+                    >
+                    <div class="img-title">Community Food Fair</div>
+                    <div class="img-desc">Delicious treats at Town Square</div>
+                </td>
+                <td>
+                    <img 
+                        src="https://picsum.photos/seed/sports/400/300" 
+                        alt="Families participating in relay races" 
+                        title="Family Sports Day 2025"
+                    >
+                    <div class="img-title">Family Sports Day</div>
+                    <div class="img-desc">Fun activities at Sports Center</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img 
+                        src="https://picsum.photos/seed/art/400/300" 
+                        alt="Art exhibition featuring local artists" 
+                        title="Art in the Park 2025"
+                    >
+                    <div class="img-title">Art in the Park</div>
+                    <div class="img-desc">Local artists showcase their work</div>
+                </td>
+                <td>
+                    <img 
+                        src="https://picsum.photos/seed/theater/400/300" 
+                        alt="Community theater performance on stage" 
+                        title="Theater Night 2025"
+                    >
+                    <div class="img-title">Theater Night</div>
+                    <div class="img-desc">Drama performances at the Community Hall</div>
+                </td>
+                <td>
+                    <img 
+                        src="https://picsum.photos/seed/yoga/400/300" 
+                        alt="Group yoga session in the park" 
+                        title="Wellness Morning 2025"
+                    >
+                    <div class="img-title">Wellness Morning</div>
+                    <div class="img-desc">Yoga and meditation sessions</div>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

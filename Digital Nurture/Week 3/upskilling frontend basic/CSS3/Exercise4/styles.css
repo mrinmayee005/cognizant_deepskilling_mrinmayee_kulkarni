@@ -1,0 +1,291 @@
+/*
+    =============================================
+    styles.css
+    Exercise 4: Color and Background Styling
+    Theme: Local Community Event Portal
+    =============================================
+    Demonstrates: HEX colors, RGBA colors,
+    background images with fallbacks, gradients,
+    and city council branding colors.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Reset and Base Styles
+   HEX color for base text and background
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    /* HEX background color as fallback */
+    background-color: #eef2f7;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------
+   Site Header
+   Deep navy background with light text
+   ------------------------------------------- */
+.site-header {
+    /* HEX color for background */
+    background-color: #1d3557;
+    /* HEX color for text */
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.site-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+.site-header p {
+    /* HEX color for subtitle */
+    color: #a8dadc;
+    font-size: 1rem;
+}
+
+/* -------------------------------------------
+   Branding Banner
+   Steel blue gradient background
+   ------------------------------------------- */
+.branding-banner {
+    /* CSS gradient using HEX colors */
+    background: linear-gradient(135deg, #457b9d, #1d3557);
+    color: #ffffff;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+.branding-banner h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.branding-banner p {
+    color: #a8dadc;
+    font-size: 1rem;
+}
+
+/* -------------------------------------------
+   Color Showcase Section
+   Grid of color swatches
+   ------------------------------------------- */
+.color-showcase {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Section title with coral accent */
+.section-title {
+    color: #1d3557;
+    font-size: 1.4rem;
+    border-bottom: 3px solid #e63946;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Color swatch grid layout */
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+}
+
+/* Individual color swatch card */
+.color-swatch {
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color-swatch span {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.color-swatch code {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Navy swatch - HEX color */
+.navy {
+    background-color: #1d3557;
+}
+
+/* Steel blue swatch - HEX color */
+.steel {
+    background-color: #457b9d;
+}
+
+/* Teal swatch - HEX color with darker text for contrast */
+.teal {
+    background-color: #a8dadc;
+    color: #1d3557;
+}
+
+/* Coral swatch - HEX color */
+.coral {
+    background-color: #e63946;
+}
+
+/* -------------------------------------------
+   Gradient Section
+   Events with gradient headers
+   ------------------------------------------- */
+.gradient-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Gradient header using council colors */
+.gradient-header {
+    /* Linear gradient on heading text area */
+    background: linear-gradient(90deg, #1d3557, #457b9d);
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 6px 6px 0 0;
+    font-size: 1.3rem;
+    border-bottom: none;
+}
+
+/* -------------------------------------------
+   Event Card
+   Cards with HEX borders and RGBA shadows
+   ------------------------------------------- */
+.event-card {
+    background-color: #ffffff;
+    border-left: 4px solid #457b9d;
+    border-radius: 0 0 6px 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    /* RGBA color for shadow - semi-transparent black */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-card h3 {
+    color: #1d3557;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+}
+
+.event-card .event-meta {
+    color: #457b9d;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.event-card p:last-child {
+    color: #555555;
+}
+
+/* Alternate card with coral accent */
+.alt-card {
+    border-left-color: #e63946;
+}
+
+/* -------------------------------------------
+   Transparency Demo
+   RGBA color with varying opacity levels
+   ------------------------------------------- */
+.transparency-demo {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Semi-transparent navy overlay box */
+.overlay-box {
+    /* RGBA: red=29, green=53, blue=87, alpha=0.85 */
+    background-color: rgba(29, 53, 87, 0.85);
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.overlay-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Light transparent teal overlay box */
+.light-overlay-box {
+    /* RGBA: red=168, green=218, blue=220, alpha=0.4 */
+    background-color: rgba(168, 218, 220, 0.4);
+    /* Dark text for contrast against light background */
+    color: #1d3557;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #a8dadc;
+}
+
+.light-overlay-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #1d3557;
+}
+
+/* -------------------------------------------
+   Background Image Section
+   Demonstrates background with solid fallback
+   ------------------------------------------- */
+.bg-image-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.bg-demo-box {
+    /* Solid color fallback in case image fails to load */
+    background-color: #457b9d;
+    /* Background image with URL - fallback is the solid color above */
+    background-image: url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800");
+    /* Background properties */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Gradient overlay using RGBA for readability */
+    background-blend-mode: overlay;
+    color: #ffffff;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.bg-demo-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.bg-demo-box p {
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* -------------------------------------------
+   Site Footer
+   Navy background with teal text
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+}

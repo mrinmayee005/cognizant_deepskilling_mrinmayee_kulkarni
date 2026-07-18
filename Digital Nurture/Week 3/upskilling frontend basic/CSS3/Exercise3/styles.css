@@ -1,0 +1,254 @@
+/*
+    =============================================
+    styles.css
+    Exercise 3: Selectors Playground
+    Theme: Local Community Event Portal
+    =============================================
+    Demonstrates: universal (*), element, ID (#),
+    class (.), grouping, descendant, child,
+    and attribute selectors.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Universal Selector (*)
+   Applies base styles to every element
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -------------------------------------------
+   Element Selector (body)
+   Targets all body elements directly
+   ------------------------------------------- */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f7;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------
+   Element Selector (h2)
+   Targets every h2 on the page
+   ------------------------------------------- */
+h2 {
+    color: #1d3557;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.3rem;
+}
+
+/* -------------------------------------------
+   Element Selector (p)
+   Targets all paragraph elements
+   ------------------------------------------- */
+p {
+    margin-bottom: 0.5rem;
+}
+
+/* -------------------------------------------
+   ID Selector (#mainHeader)
+   Styles the primary page heading
+   ------------------------------------------- */
+#mainHeader {
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #1d3557;
+    padding: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* -------------------------------------------
+   ID Selector (#featuredEvent)
+   Styles a single featured event block
+   ------------------------------------------- */
+#featuredEvent {
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-top: 1rem;
+}
+
+#featuredEvent h3 {
+    color: #856404;
+    font-size: 1.2rem;
+}
+
+#featuredEvent p {
+    color: #856404;
+}
+
+/* -------------------------------------------
+   Class Selector (.eventCard)
+   Reusable card component for events
+   ------------------------------------------- */
+.eventCard {
+    background-color: #ffffff;
+    border-left: 4px solid #457b9d;
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* Class selector: .eventCard h3 styles h3 inside event cards */
+.eventCard h3 {
+    color: #1d3557;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Class selector: .eventCard p styles paragraphs inside cards */
+.eventCard p {
+    color: #666666;
+    font-size: 0.95rem;
+}
+
+/* Class selector: modifier class .featured changes card appearance */
+.eventCard.featured {
+    border-left-color: #e63946;
+    background-color: #fff8f5;
+}
+
+/* -------------------------------------------
+   Class Selector (.badge)
+   Small label tags on events
+   ------------------------------------------- */
+.badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Featured badge modifier */
+.featuredBadge {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* -------------------------------------------
+   Grouping Selector (h3, p)
+   Shared styles applied to both h3 and p
+   ------------------------------------------- */
+.info-box h3,
+.info-box p {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.info-box {
+    background-color: #ffffff;
+    border-left: 4px solid #2a9d8f;
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.info-box h3 {
+    color: #2a9d8f;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.info-box p {
+    color: #555555;
+    font-size: 0.95rem;
+}
+
+/* -------------------------------------------
+   Descendant Selector (nav.quickNav ul li)
+   Targets all li elements inside the nav
+   ------------------------------------------- */
+.quickNav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.quickNav ul li {
+    background-color: #1d3557;
+    border-radius: 5px;
+    padding: 0.5rem 1.2rem;
+}
+
+/* -------------------------------------------
+   Child Selector via Descendant (nav a)
+   Styles anchor links inside the nav
+   ------------------------------------------- */
+.quickNav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.quickNav a:hover {
+    color: #a8dadc;
+}
+
+/* -------------------------------------------
+   Attribute Selector
+   Targets links with specific attributes
+   ------------------------------------------- */
+/* Targets anchor tags that have target="_blank" */
+a[target="_blank"] {
+    color: #457b9d;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Targets anchor tags that have href containing "example.com" */
+a[href*="example.com"] {
+    color: #e63946;
+}
+
+/* -------------------------------------------
+   Section Container
+   Wraps each demonstration section
+   ------------------------------------------- */
+section {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+/* -------------------------------------------
+   Header Subtitle
+   Paragraph directly under header
+   ------------------------------------------- */
+header p {
+    text-align: center;
+    color: #a8dadc;
+    background-color: #1d3557;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* -------------------------------------------
+   Element Selector (footer)
+   Styles the page footer
+   ------------------------------------------- */
+footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+}

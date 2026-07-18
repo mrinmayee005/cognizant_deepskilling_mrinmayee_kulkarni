@@ -1,0 +1,388 @@
+/*
+    =============================================
+    styles.css
+    Exercise 6: Link and List Styling
+    Theme: Local Community Event Portal
+    =============================================
+    Demonstrates: :link, :hover, :active, :visited
+    pseudo-classes, list-style-type, list-style-
+    position, and bullet-free navigation menus.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Reset and Base Styles
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------
+   Site Header
+   ------------------------------------------- */
+.site-header {
+    background-color: #1d3557;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.site-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+/* -------------------------------------------
+   Navigation Menu
+   Horizontal nav without bullets
+   ------------------------------------------- */
+.main-nav {
+    background-color: #457b9d;
+    padding: 0;
+}
+
+/* Navigation unordered list - no bullets */
+.main-nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+/* Navigation list items */
+.main-nav ul li {
+    /* No bullets - list-style-type: none applied via parent */
+}
+
+/* -------------------------------------------
+   Link Pseudo-Class Styling
+   :link, :visited, :hover, :active
+   Order matters: LVHA (Link, Visited, Hover, Active)
+   ------------------------------------------- */
+
+/* :link - Default state for unvisited links */
+.main-nav .nav-link:link {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+
+/* :visited - State for previously visited links */
+.main-nav .nav-link:visited {
+    color: #d4e8ef;
+    background-color: transparent;
+}
+
+/* :hover - State when mouse pointer is over link */
+.main-nav .nav-link:hover {
+    background-color: #1d3557;
+    color: #a8dadc;
+}
+
+/* :active - State while link is being clicked */
+.main-nav .nav-link:active {
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+/* Active navigation indicator */
+.main-nav .nav-link.active {
+    background-color: #1d3557;
+    border-bottom: 3px solid #e63946;
+}
+
+/* -------------------------------------------
+   Content Sections
+   ------------------------------------------- */
+.content-section {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.content-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.content-section h3 {
+    color: #457b9d;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* -------------------------------------------
+   List Demo Containers
+   Each demo block within a section
+   ------------------------------------------- */
+.list-demo {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.list-demo:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* -------------------------------------------
+   Unordered List - Event Highlights
+   Custom bullet style
+   ------------------------------------------- */
+.event-highlights {
+    /* Custom bullet type using list-style-type */
+    list-style-type: disc;
+    /* Position bullets inside the padding edge */
+    list-style-position: inside;
+    padding-left: 1.5rem;
+}
+
+/* Event highlights list items */
+.event-highlights li {
+    padding: 0.4rem 0;
+    color: #444444;
+    font-size: 0.95rem;
+}
+
+/* -------------------------------------------
+   Ordered List - Schedule
+   Custom numbering style
+   ------------------------------------------- */
+.schedule-list {
+    /* Decimal leading zero numbering */
+    list-style-type: decimal-leading-zero;
+    /* Position numbers outside the content edge */
+    list-style-position: outside;
+    padding-left: 2rem;
+}
+
+/* Schedule list items */
+.schedule-list li {
+    padding: 0.5rem 0;
+    color: #444444;
+    font-size: 0.95rem;
+}
+
+/* -------------------------------------------
+   Description List - Event Details
+   Styled dt/dd pairs
+   ------------------------------------------- */
+.details-list {
+    padding: 0;
+}
+
+/* Description term (label) */
+.details-list dt {
+    font-weight: bold;
+    color: #1d3557;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+}
+
+/* Description details (value) */
+.details-list dd {
+    color: #555555;
+    font-size: 0.95rem;
+    margin-left: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+/* -------------------------------------------
+   Styled Links List
+   External links with hover effects
+   ------------------------------------------- */
+.styled-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.styled-links li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* External links - :link state */
+.styled-links a:link {
+    color: #457b9d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* External links - :visited state */
+.styled-links a:visited {
+    color: #6b4c8a;
+}
+
+/* External links - :hover state */
+.styled-links a:hover {
+    color: #e63946;
+    text-decoration: underline;
+}
+
+/* External links - :active state */
+.styled-links a:active {
+    color: #1d3557;
+    text-decoration: underline;
+}
+
+/* -------------------------------------------
+   Two-Column Layout for Sidebar Lists
+   ------------------------------------------- */
+.two-column {
+    display: flex;
+    gap: 2rem;
+}
+
+.column {
+    flex: 1;
+}
+
+.column h2 {
+    font-size: 1.1rem;
+}
+
+/* -------------------------------------------
+   Sidebar Links
+   Navigation-style list without bullets
+   ------------------------------------------- */
+.sidebar-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-links li {
+    margin-bottom: 0.3rem;
+}
+
+.sidebar-links a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: #1d3557;
+    text-decoration: none;
+    border-left: 3px solid #a8dadc;
+    background-color: #f9fbfd;
+    transition: all 0.3s ease;
+}
+
+.sidebar-links a:hover {
+    background-color: #1d3557;
+    color: #ffffff;
+    border-left-color: #e63946;
+}
+
+.sidebar-links a:active {
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+/* -------------------------------------------
+   Category List
+   Custom circle bullets
+   ------------------------------------------- */
+.category-list {
+    list-style-type: circle;
+    padding-left: 1.5rem;
+}
+
+.category-list li {
+    padding: 0.3rem 0;
+}
+
+.category-list a {
+    color: #457b9d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.category-list a:hover {
+    color: #e63946;
+    text-decoration: underline;
+}
+
+/* -------------------------------------------
+   Link States Demo List
+   Visual reference for pseudo-class states
+   ------------------------------------------- */
+.state-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.state-list li {
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* State demo labels */
+.state-demo {
+    display: inline-block;
+    width: 80px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    text-align: center;
+}
+
+/* :link state demo color */
+.normal-link {
+    background-color: #457b9d;
+    color: #ffffff;
+}
+
+/* :visited state demo color */
+.visited-link {
+    background-color: #6b4c8a;
+    color: #ffffff;
+}
+
+/* :hover state demo color */
+.hover-link {
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+/* :active state demo color */
+.active-link {
+    background-color: #9d1b1b;
+    color: #ffffff;
+}
+
+/* -------------------------------------------
+   Site Footer
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+}

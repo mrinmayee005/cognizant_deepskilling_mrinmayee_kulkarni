@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Saved Preferences</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2rem; }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 0.7rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        .saved-indicator {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            color: white;
+        }
+        .btn-danger {
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            color: white;
+        }
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+        .btn:hover { opacity: 0.9; }
+        .storage-display {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .storage-display h4 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .storage-display p {
+            margin-bottom: 0.3rem;
+            word-break: break-all;
+        }
+        .storage-display .empty {
+            color: #999;
+            font-style: italic;
+        }
+        .preference-saved {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .preference-saved strong {
+            color: #155724;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>Local Community Event Portal</h1>
+        <p>User Preferences (localStorage &amp; sessionStorage)</p>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Preference Selection -->
+        <div class="card">
+            <h2>Set Your Event Preferences</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Your preferred event type will be saved to localStorage and automatically selected on your next visit.</p>
+
+            <div class="form-group">
+                <label for="prefEvent">Preferred Event Type</label>
+                <select id="prefEvent" onchange="savePreference()">
+                    <option value="">-- Select Event Type --</option>
+                    <option value="music">Music &amp; Concerts</option>
+                    <option value="food">Food &amp; Dining</option>
+                    <option value="sports">Sports &amp; Fitness</option>
+                    <option value="arts">Arts &amp; Culture</option>
+                    <option value="workshops">Workshops &amp; Learning</option>
+                    <option value="family">Family Activities</option>
+                </select>
+                <div id="prefSavedMsg" class="saved-indicator" style="display:none;">Saved!</div>
+            </div>
+
+            <div class="form-group">
+                <label for="prefName">Your Name</label>
+                <input 
+                    type="text" 
+                    id="prefName" 
+                    placeholder="Enter your name" 
+                    oninput="saveNamePreference()"
+                >
+                <div id="nameSavedMsg" class="saved-indicator" style="display:none;">Saved!</div>
+            </div>
+
+            <div id="preferenceSummary" class="preference-saved" style="display:none;"></div>
+        </div>
+
+        <!-- Storage Viewer -->
+        <div class="card">
+            <h2>Current Storage Contents</h2>
+            <div class="storage-display">
+                <h4>localStorage:</h4>
+                <p id="localStorageView" class="empty">No items saved.</p>
+            </div>
+            <div class="storage-display" style="margin-top: 0.5rem;">
+                <h4>sessionStorage:</h4>
+                <p id="sessionStorageView" class="empty">No items saved.</p>
+            </div>
+        </div>
+
+        <!-- Clear Buttons -->
+        <div class="card">
+            <h2>Manage Preferences</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Clear your saved preferences from browser storage.</p>
+            <button class="btn btn-danger" onclick="clearLocalStorage()">Clear localStorage</button>
+            <button class="btn btn-danger" onclick="clearSessionStorage()">Clear sessionStorage</button>
+            <button class="btn btn-danger" onclick="clearAllStorage()">Clear All Storage</button>
+            <button class="btn btn-success" onclick="refreshStorageView()">Refresh View</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Save event preference to localStorage
+        function savePreference() {
+            var eventPref = document.getElementById('prefEvent').value;
+            if (eventPref) {
+                localStorage.setItem('communityEventPref', eventPref);
+                showSavedMsg('prefSavedMsg');
+                updatePreferenceSummary();
+                refreshStorageView();
+            }
+        }
+
+        // Save name preference to localStorage
+        function saveNamePreference() {
+            var name = document.getElementById('prefName').value.trim();
+            if (name) {
+                localStorage.setItem('communityUserName', name);
+                showSavedMsg('nameSavedMsg');
+            } else {
+                localStorage.removeItem('communityUserName');
+            }
+            updatePreferenceSummary();
+            refreshStorageView();
+        }
+
+        // Show saved indicator
+        function showSavedMsg(elementId) {
+            var msg = document.getElementById(elementId);
+            msg.style.display = 'inline-block';
+            setTimeout(function() {
+                msg.style.display = 'none';
+            }, 1500);
+        }
+
+        // Update preference summary display
+        function updatePreferenceSummary() {
+            var summary = document.getElementById('preferenceSummary');
+            var pref = localStorage.getItem('communityEventPref');
+            var name = localStorage.getItem('communityUserName');
+            if (pref || name) {
+                summary.style.display = 'block';
+                var html = '<strong>Your Saved Preferences:</strong><br>';
+                if (name) html += 'Name: ' + name + '<br>';
+                if (pref) {
+                    var select = document.getElementById('prefEvent');
+                    var prefText = select.options[select.selectedIndex].text;
+                    html += 'Preferred Event: ' + prefText;
+                }
+                summary.innerHTML = html;
+            } else {
+                summary.style.display = 'none';
+            }
+        }
+
+        // Display current storage contents
+        function refreshStorageView() {
+            var lsView = document.getElementById('localStorageView');
+            var ssView = document.getElementById('sessionStorageView');
+
+            // localStorage view
+            if (localStorage.length > 0) {
+                var lsItems = [];
+                for (var i = 0; i < localStorage.length; i++) {
+                    var key = localStorage.key(i);
+                    lsItems.push(key + ': "' + localStorage.getItem(key) + '"');
+                }
+                lsView.innerHTML = lsItems.join('<br>');
+                lsView.className = '';
+            } else {
+                lsView.textContent = 'No items saved.';
+                lsView.className = 'empty';
+            }
+
+            // sessionStorage view
+            if (sessionStorage.length > 0) {
+                var ssItems = [];
+                for (var i = 0; i < sessionStorage.length; i++) {
+                    var key = sessionStorage.key(i);
+                    ssItems.push(key + ': "' + sessionStorage.getItem(key) + '"');
+                }
+                ssView.innerHTML = ssItems.join('<br>');
+                ssView.className = '';
+            } else {
+                ssView.textContent = 'No items saved.';
+                ssView.className = 'empty';
+            }
+        }
+
+        // Clear functions
+        function clearLocalStorage() {
+            localStorage.clear();
+            refreshStorageView();
+            updatePreferenceSummary();
+            document.getElementById('prefEvent').selectedIndex = 0;
+            document.getElementById('prefName').value = '';
+        }
+
+        function clearSessionStorage() {
+            sessionStorage.clear();
+            refreshStorageView();
+        }
+
+        function clearAllStorage() {
+            localStorage.clear();
+            sessionStorage.clear();
+            refreshStorageView();
+            updatePreferenceSummary();
+            document.getElementById('prefEvent').selectedIndex = 0;
+            document.getElementById('prefName').value = '';
+        }
+
+        // On page load: retrieve and pre-select saved preference
+        window.onload = function() {
+            var savedPref = localStorage.getItem('communityEventPref');
+            var savedName = localStorage.getItem('communityUserName');
+
+            if (savedPref) {
+                var select = document.getElementById('prefEvent');
+                for (var i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === savedPref) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            if (savedName) {
+                document.getElementById('prefName').value = savedName;
+            }
+
+            updatePreferenceSummary();
+            refreshStorageView();
+        };
+    </script>
+
+</body>
+</html>

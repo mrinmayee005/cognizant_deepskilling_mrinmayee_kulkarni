@@ -1,0 +1,387 @@
+/*
+    =============================================
+    styles.css
+    Exercise 11: Debug and Test with Dev Tools
+    Theme: Local Community Event Portal
+    =============================================
+    Well-documented styles for debugging practice.
+    Each rule is annotated to help students
+    identify and fix issues using Chrome DevTools.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Reset and Base Styles
+   Common starting point for all pages
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------
+   Site Header
+   Debugging tip: Inspect this to change colors
+   ------------------------------------------- */
+.site-header {
+    background-color: #1d3557;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.site-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.site-header p {
+    color: #a8dadc;
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* -------------------------------------------
+   Instructions Section
+   Contains DevTools keyboard shortcut info
+   ------------------------------------------- */
+.instructions-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.instructions-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+}
+
+/* Tip box for instructions */
+.tip-box {
+    background-color: #e8f4fd;
+    border: 2px solid #457b9d;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.tip-box h3 {
+    color: #1d3557;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tip-box p {
+    color: #333333;
+    font-size: 0.95rem;
+}
+
+/* Keyboard shortcut styling */
+kbd {
+    display: inline-block;
+    background-color: #1d3557;
+    color: #ffffff;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid #0d1b2a;
+}
+
+/* -------------------------------------------
+   Tips Section
+   Grid of DevTools tips
+   ------------------------------------------- */
+.tips-section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.tips-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+}
+
+/* Tips grid layout */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+/* Individual tip card */
+.tip-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-top: 3px solid #457b9d;
+}
+
+.tip-card h3 {
+    color: #1d3557;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.tip-card p {
+    color: #555555;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Code snippets inside tip cards */
+.tip-card code {
+    display: block;
+    background-color: #f0f0f0;
+    padding: 0.4rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: #e63946;
+    font-family: 'Courier New', monospace;
+}
+
+/* -------------------------------------------
+   Demo Section
+   Interactive debugging demo with event cards
+   ------------------------------------------- */
+.demo-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.demo-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+}
+
+.demo-section > p {
+    color: #666666;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Event card for debugging demo */
+.eventCard {
+    background-color: #ffffff;
+    border: 1px solid #d0d7de;
+    border-left: 4px solid #457b9d;
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s;
+}
+
+.eventCard:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.eventCard h3 {
+    color: #1d3557;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.eventCard p {
+    color: #555555;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Highlighted event card - different accent */
+.eventCard.highlighted {
+    border-left-color: #e63946;
+    background-color: #fff8f5;
+}
+
+/* Card meta information row */
+.card-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.meta-item {
+    font-size: 0.85rem;
+    color: #457b9d;
+    font-weight: bold;
+}
+
+/* -------------------------------------------
+   Errors Section
+   Table of common CSS errors for debugging
+   ------------------------------------------- */
+.errors-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.errors-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+}
+
+/* Errors table */
+.errors-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.errors-table thead {
+    background-color: #1d3557;
+    color: #ffffff;
+}
+
+.errors-table th {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.errors-table td {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e8e8e8;
+    vertical-align: top;
+}
+
+/* Zebra striping for error table rows */
+.errors-table tbody tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+/* First column - error type */
+.errors-table td:first-child {
+    font-weight: bold;
+    color: #e63946;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+}
+
+/* Second column - symptom */
+.errors-table td:nth-child(2) {
+    color: #555555;
+}
+
+/* Third column - fix */
+.errors-table td:nth-child(3) {
+    color: #2a9d8f;
+    font-weight: 500;
+}
+
+/* -------------------------------------------
+   Practice Section
+   Exercises for students to try in DevTools
+   ------------------------------------------- */
+.practice-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.practice-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+}
+
+.practice-section > p {
+    color: #555555;
+    margin-bottom: 1rem;
+}
+
+/* Ordered list of practice tasks */
+.practice-list {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.practice-list li {
+    padding: 0.4rem 0;
+    color: #444444;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Inline code in practice list */
+.practice-list code {
+    background-color: #f0f0f0;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    color: #e63946;
+    font-family: 'Courier New', monospace;
+}
+
+/* Practice box for hidden text exercise */
+.practice-box {
+    background-color: #ffffff;
+    border: 2px dashed #457b9d;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.practice-box p {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+/* Hidden text for debugging exercise */
+/* Students should find and fix this using DevTools */
+.hidden-text {
+    visibility: hidden;
+    color: #2a9d8f;
+    font-weight: bold;
+    font-style: italic;
+    background-color: #e8f5e9;
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
+}
+
+/* -------------------------------------------
+   Site Footer
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+}

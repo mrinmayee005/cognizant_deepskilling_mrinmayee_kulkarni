@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Debugging Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+        }
+        header {
+            background: linear-gradient(135deg, #6c3483, #8e44ad);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2rem; }
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card h2 {
+            color: #6c3483;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        .card p {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+        .comment-box {
+            background: #f0e6f6;
+            border-left: 4px solid #8e44ad;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+        }
+        .comment-box strong {
+            color: #6c3483;
+        }
+        code {
+            background: #f8f0fc;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #6c3483;
+        }
+        .debug-section {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .debug-section .comment { color: #6a9955; }
+        .debug-section .keyword { color: #569cd6; }
+        .debug-section .string { color: #ce9178; }
+        .debug-section .function { color: #dcdcaa; }
+        .debug-section .number { color: #b5cea8; }
+        .btn {
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #6c3483, #8e44ad);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            margin: 0.3rem;
+        }
+        .btn:hover { opacity: 0.9; }
+        #debugOutput {
+            background: #1e1e1e;
+            color: #4ec9b0;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            min-height: 100px;
+            white-space: pre-wrap;
+        }
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        .instructions ol {
+            margin-left: 1.5rem;
+        }
+        .instructions ol li {
+            margin-bottom: 0.3rem;
+            color: #856404;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>Local Community Event Portal</h1>
+        <p>Debugging with Chrome DevTools</p>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Intro Card -->
+        <div class="card">
+            <h2>Welcome to the Debugging Lab</h2>
+            <p>This page contains intentional bugs and debugging scenarios to practice using Chrome DevTools. Open your browser's Developer Tools (F12) and follow along!</p>
+
+            <div class="instructions">
+                <h3>Getting Started with DevTools</h3>
+                <ol>
+                    <li>Press <code>F12</code> or <code>Ctrl+Shift+I</code> (Windows) / <code>Cmd+Option+I</code> (Mac) to open DevTools</li>
+                    <li>Go to the <strong>Console</strong> tab to see log messages</li>
+                    <li>Go to the <strong>Elements</strong> tab and right-click elements to "Inspect" them</li>
+                    <li>Click the <strong>Sources</strong> tab to set breakpoints in scripts</li>
+                    <li>Click buttons below and watch the Console output</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Scenario 1: Console.log -->
+        <div class="card">
+            <h2>Scenario 1: Using console.log</h2>
+            <p>Click the buttons below and observe the output in the Console tab.</p>
+
+            <div class="comment-box">
+                <strong>How to inspect:</strong> Right-click any button &rarr; "Inspect" to see its HTML. 
+                Check the Console tab (F12) for log output.
+            </div>
+
+            <button class="btn" onclick="logEventInfo()">Log Event Info</button>
+            <button class="btn" onclick="logUserCount()">Log User Count</button>
+            <button class="btn" onclick="logArrayData()">Log Event List</button>
+            <button class="btn" onclick="logObjectData()">Log Event Object</button>
+
+            <div id="debugOutput"></div>
+        </div>
+
+        <!-- Scenario 2: console.table / console.warn / console.error -->
+        <div class="card">
+            <h2>Scenario 2: Console Methods</h2>
+            <p>Different console methods produce different outputs. Try each button:</p>
+
+            <button class="btn" onclick="demoConsoleTable()">console.table()</button>
+            <button class="btn" onclick="demoConsoleWarn()">console.warn()</button>
+            <button class="btn" onclick="demoConsoleError()">console.error()</button>
+            <button class="btn" onclick="demoConsoleGroup()">console.group()</button>
+
+            <div class="comment-box">
+                <strong>Tip:</strong> In the Console, you can filter by log level: Errors, Warnings, Info, or All.
+                Use the filter dropdown at the top of the Console panel.
+            </div>
+        </div>
+
+        <!-- Scenario 3: Breakpoints -->
+        <div class="card">
+            <h2>Scenario 3: Setting Breakpoints</h2>
+            <p>Practice pausing code execution with breakpoints:</p>
+
+            <div class="instructions">
+                <h3>How to Set a Breakpoint</h3>
+                <ol>
+                    <li>Open DevTools and go to the <strong>Sources</strong> tab</li>
+                    <li>In the left panel, find <code>&lt;script&gt;</code> or look for "Snippets"</li>
+                    <li>Click on a line number to set a breakpoint (blue marker appears)</li>
+                    <li>Click the button below - execution will pause at the breakpoint</li>
+                    <li>Use the controls: Resume (F8), Step Over (F10), Step Into (F11)</li>
+                    <li>Hover over variables in the <strong>Scope</strong> panel to see their values</li>
+                </ol>
+            </div>
+
+            <button class="btn" onclick="breakpointDemo()">Run Breakpoint Demo</button>
+            <div id="breakpointOutput" style="margin-top:1rem; padding:1rem; background:#f8f9fa; border-radius:6px; min-height:60px;"></div>
+        </div>
+
+        <!-- Scenario 4: Find and Fix Bugs -->
+        <div class="card">
+            <h2>Scenario 4: Find and Fix the Bug</h2>
+            <p>This code has a bug! Use the Console and Elements inspector to find it.</p>
+
+            <div class="comment-box">
+                <strong>Challenge:</strong> The event count display shows "NaN" - find why!
+                Use "Inspect Element" and check the Console for errors.
+            </div>
+
+            <div style="padding:1rem; background:#f8f9fa; border-radius:6px; margin:1rem 0;">
+                <p>Registered Events: <strong id="buggyCount"></strong></p>
+                <p>Total Attendees: <strong id="buggyAttendees"></strong></p>
+            </div>
+
+            <button class="btn" onclick="fixBug()">Fix the Bug (Solution)</button>
+            <div id="bugOutput" style="margin-top:0.5rem; color:#27ae60; font-weight:500;"></div>
+        </div>
+
+        <!-- Scenario 5: DOM Manipulation Debugging -->
+        <div class="card">
+            <h2>Scenario 5: DOM Manipulation Debugging</h2>
+            <p>Use the <strong>Elements</strong> tab to watch DOM changes in real-time:</p>
+
+            <div id="dynamicContent" style="padding:1rem; background:#f0f0f0; border-radius:6px; margin:1rem 0;">
+                Initial content - watch this change!
+            </div>
+
+            <button class="btn" onclick="addEventCard()">Add Event Card</button>
+            <button class="btn" onclick="removeLastCard()">Remove Last Card</button>
+            <button class="btn" onclick="modifyExistingCard()">Modify First Card</button>
+
+            <div class="comment-box">
+                <strong>How to observe:</strong> Open Elements tab, expand the <code>#dynamicContent</code> div, 
+                and click the buttons. You'll see the DOM tree update in real-time. 
+                Right-click modified elements to see what changed.
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Page load logs
+        console.log('%c[Community Event Portal] Page loaded successfully', 'color: #8e44ad; font-weight: bold; font-size: 14px;');
+        console.log('DevTools Debugging Lab initialized');
+        console.info('Tip: Press F12 to open Developer Tools');
+
+        // Scenario 1: Console.log demos
+        function logEventInfo() {
+            var output = document.getElementById('debugOutput');
+            var eventName = 'Summer Music Festival';
+            var date = 'July 25, 2026';
+            var venue = 'Central Park';
+
+            console.log('Event Name: ' + eventName);
+            console.log('Date: ' + date);
+            console.log('Venue: ' + venue);
+
+            output.textContent += '>> Logged event info to console\n';
+        }
+
+        function logUserCount() {
+            var count = Math.floor(Math.random() * 200) + 50;
+            console.log('Current registered users:', count);
+
+            var output = document.getElementById('debugOutput');
+            output.textContent += '>> Logged user count: ' + count + '\n';
+        }
+
+        function logArrayData() {
+            var events = ['Music Festival', 'Food Fair', 'Sports Day', 'Art Exhibition', 'Workshop'];
+            console.log('Event list:', events);
+            console.log('Total events:', events.length);
+
+            var output = document.getElementById('debugOutput');
+            output.textContent += '>> Logged event array with ' + events.length + ' items\n';
+        }
+
+        function logObjectData() {
+            var event = {
+                name: 'Community Food Fair',
+                date: 'August 5, 2026',
+                venue: 'Town Square',
+                attendees: 150,
+                isFree: false
+            };
+            console.log('Event object:', event);
+            console.log('Event details:', JSON.stringify(event, null, 2));
+
+            var output = document.getElementById('debugOutput');
+            output.textContent += '>> Logged event object (check Console for full details)\n';
+        }
+
+        // Scenario 2: Console methods
+        function demoConsoleTable() {
+            var events = [
+                { name: 'Music Festival', date: 'Jul 25', spots: 50 },
+                { name: 'Food Fair', date: 'Aug 5', spots: 100 },
+                { name: 'Sports Day', date: 'Aug 15', spots: 75 }
+            ];
+            console.table(events);
+            console.log('Event table logged to console - check the formatted table output!');
+        }
+
+        function demoConsoleWarn() {
+            console.warn('Warning: Registration closes in 2 days!');
+            console.warn('Warning: Limited spots remaining for Sports Day');
+        }
+
+        function demoConsoleError() {
+            console.error('Error: Failed to load event data from server');
+            console.error('Error: Network timeout - please check your connection');
+        }
+
+        function demoConsoleGroup() {
+            console.group('Event Details: Summer Music Festival');
+            console.log('Date: July 25, 2026');
+            console.log('Venue: Central Park');
+            console.log('Price: Free');
+            console.log('Capacity: 500');
+            console.groupEnd();
+            console.log('Group logged - expand the group in Console to see details');
+        }
+
+        // Scenario 3: Breakpoint demo
+        function breakpointDemo() {
+            // SET A BREAKPOINT ON ONE OF THESE LINES in Sources tab!
+            var events = ['Music', 'Food', 'Sports'];
+            var results = [];
+
+            for (var i = 0; i < events.length; i++) {
+                // Try setting a breakpoint on this line (Step Over with F10)
+                var processed = events[i] + ' Event #' + (i + 1);
+                results.push(processed);
+            }
+
+            console.log('Breakpoint demo results:', results);
+
+            var output = document.getElementById('breakpointOutput');
+            output.innerHTML = '<strong>Results:</strong><br>' + results.join('<br>') +
+                '<br><br><em style="color:#888;">Check the Console for the full output. ' +
+                'If you set a breakpoint, the debugger should have paused during execution!</em>';
+        }
+
+        // Scenario 4: Buggy code (with intentional bugs)
+        function buggyEventCalculation() {
+            var eventCount = "5";          // BUG: string instead of number
+            var pricePerEvent = 10;
+            var total = eventCount * pricePerEvent;   // Will work (coercion)
+            var attendeeCount = undefined;  // BUG: undefined value
+            return {
+                count: parseInt(eventCount),
+                total: total,
+                attendees: attendeeCount + 100  // BUG: NaN
+            };
+        }
+
+        // Display buggy results
+        (function() {
+            var result = buggyEventCalculation();
+            document.getElementById('buggyCount').textContent = result.count;
+            document.getElementById('buggyAttendees').textContent = result.attendees;
+            console.log('Buggy calculation result:', result);
+            console.warn('Notice: attendees is NaN - this is the bug to find!');
+        })();
+
+        function fixBug() {
+            var eventCount = 5;              // FIXED: number
+            var pricePerEvent = 10;
+            var total = eventCount * pricePerEvent;
+            var attendeeCount = 200;         // FIXED: proper value
+            var result = {
+                count: eventCount,
+                total: total,
+                attendees: attendeeCount + 100
+            };
+
+            document.getElementById('buggyCount').textContent = result.count;
+            document.getElementById('buggyAttendees').textContent = result.attendees;
+
+            console.log('Fixed calculation result:', result);
+            document.getElementById('bugOutput').textContent = 'Bug fixed! eventCount is now a number (5) and attendeeCount is defined (200).';
+        }
+
+        // Scenario 5: DOM manipulation
+        var cardCount = 0;
+
+        function addEventCard() {
+            cardCount++;
+            var container = document.getElementById('dynamicContent');
+            var card = document.createElement('div');
+            card.style.cssText = 'background:white; padding:10px; margin:8px 0; border-radius:6px; border-left:4px solid #8e44ad;';
+            card.innerHTML = '<strong>Event Card #' + cardCount + '</strong><br>' +
+                '<small>Dynamically added - inspect me in Elements tab!</small>';
+            container.appendChild(card);
+            console.log('Added card #' + cardCount);
+        }
+
+        function removeLastCard() {
+            var container = document.getElementById('dynamicContent');
+            var cards = container.querySelectorAll('div');
+            if (cards.length > 0) {
+                var lastCard = cards[cards.length - 1];
+                console.log('Removing:', lastCard);
+                container.removeChild(lastCard);
+                cardCount--;
+            } else {
+                console.warn('No cards to remove!');
+            }
+        }
+
+        function modifyExistingCard() {
+            var container = document.getElementById('dynamicContent');
+            var firstCard = container.querySelector('div');
+            if (firstCard) {
+                firstCard.style.borderLeftColor = '#e74c3c';
+                firstCard.style.background = '#fff3cd';
+                console.log('Modified first card - check Elements tab to see attribute changes');
+            } else {
+                console.warn('No cards to modify! Add some first.');
+            }
+        }
+    </script>
+
+</body>
+</html>

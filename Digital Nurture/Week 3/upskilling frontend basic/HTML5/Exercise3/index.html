@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+        }
+
+        /* ID Selector: #welcomeBanner */
+        #welcomeBanner {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        #welcomeBanner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        #welcomeBanner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Class Selector: .highlight */
+        .highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        /* Class Selector: .event-info */
+        .event-info {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .event-info h3 {
+            color: #2980b9;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ID Selector: #specialOffer */
+        #specialOffer {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        #specialOffer h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header id="welcomeBanner">
+        <h1>Welcome to Community Events!</h1>
+        <p>Discover, register, and enjoy local events in your neighborhood</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Opening Hours: <span style="font-weight: bold;">Mon - Sat, 9:00 AM - 6:00 PM</span></p>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <h2 class="section-title">What's Happening This Month</h2>
+
+        <!-- Demonstrating .highlight class (block-level element) -->
+        <div class="highlight">
+            <strong>Announcement:</strong> Early bird registration is now open for all summer events! 
+            <span style="color: #e74c3c; font-weight: bold;">Save up to 20% when you register before July 20!</span>
+        </div>
+
+        <!-- Demonstrating block-level tags: div, h3, p -->
+        <div class="event-info">
+            <h3>Summer Music Festival</h3>
+            <p>Date: <span style="color: #2980b9; font-weight: bold;">July 25, 2026</span></p>
+            <p>Venue: Central Park Amphitheater</p>
+            <p>
+                Join us for an evening of live music performances featuring 
+                <em>local bands and artists</em>. 
+                <strong>Free admission</strong> for all community members!
+            </p>
+        </div>
+
+        <div class="event-info">
+            <h3>Community Food Fair</h3>
+            <p>Date: <span style="color: #2980b9; font-weight: bold;">August 5, 2026</span></p>
+            <p>Venue: Town Square</p>
+            <p>
+                Taste delicious dishes from over 
+                <strong>20 local restaurants</strong> and food vendors. 
+                Family-friendly activities and cooking demonstrations included.
+            </p>
+        </div>
+
+        <!-- Demonstrating inline tags: span, strong, em -->
+        <div class="highlight">
+            <p>
+                <span style="font-weight: bold; color: #e74c3c;">Special Offer:</span> 
+                Register for <em>any 2 events</em> and get 
+                <strong style="color: #27ae60;">15% OFF</strong> your total registration fee! 
+                Use code: <span style="background: #2c3e50; color: white; padding: 2px 8px; border-radius: 3px;">COMMUNITY15</span>
+            </p>
+        </div>
+
+        <!-- Demonstrating ID selector for special offer -->
+        <div id="specialOffer">
+            <h2>Limited Time: Family Bundle Deal!</h2>
+            <p>Register your whole family for Sports Day at just <strong>$25</strong> (normally $40 for a family of 4)</p>
+            <p style="margin-top: 0.5rem; opacity: 0.9;">Offer expires July 31, 2026</p>
+        </div>
+
+        <div class="event-info">
+            <h3>Family Sports Day</h3>
+            <p>Date: <span style="color: #2980b9; font-weight: bold;">August 15, 2026</span></p>
+            <p>Venue: Community Sports Center</p>
+            <p>Compete in relay races, obstacle courses, and team sports. Prizes for all participants!</p>
+        </div>
+
+        <h2 class="section-title">ID vs Class Demonstration</h2>
+        <div class="highlight">
+            <p><strong>IDs (like #welcomeBanner):</strong> Used for UNIQUE elements. Each ID should appear only once per page.</p>
+            <p><strong>Classes (like .highlight):</strong> Used for MULTIPLE elements. A class can be applied to many elements to share the same styling.</p>
+            <p><strong>Block elements</strong> (div, h1-h6, p, section): Take up full width, start on a new line.</p>
+            <p><strong>Inline elements</strong> (span, strong, em, a): Flow within text, do not start on a new line.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

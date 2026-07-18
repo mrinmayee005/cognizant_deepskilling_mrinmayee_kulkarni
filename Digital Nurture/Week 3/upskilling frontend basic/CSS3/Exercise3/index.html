@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal - Selectors Playground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- ID selector: #mainHeader styles this element -->
+        <h1 id="mainHeader">Local Community Event Portal</h1>
+        <p>A demonstration of CSS selector types</p>
+    </header>
+
+    <main>
+        <!-- Universal selector affects all elements: margin/padding reset, font -->
+        <!-- Element selector h2 targets all h2 tags on this page -->
+        <section class="section-container">
+            <h2>Selector Types Demonstrated Below</h2>
+            <p>Each section showcases a different CSS selector.</p>
+        </section>
+
+        <!-- Class selector: .eventCard styles this card -->
+        <section>
+            <h2>Class Selector (.eventCard)</h2>
+            <div class="eventCard">
+                <h3>Community Clean-Up Day</h3>
+                <p>Join us Saturday morning to beautify our local park.</p>
+                <span class="badge">Volunteer</span>
+            </div>
+            <div class="eventCard featured">
+                <h3>Holiday Light Festival</h3>
+                <p>Downtown comes alive with thousands of twinkling lights.</p>
+                <span class="badge featuredBadge">Featured</span>
+            </div>
+        </section>
+
+        <!-- Grouping selector: h3 and p share shared styles -->
+        <section>
+            <h2>Grouping Selector (h3, p)</h2>
+            <div class="info-box">
+                <h3>How to Register</h3>
+                <p>Visit the events desk at Town Hall or register online through our portal.</p>
+                <p>Registration is free for all community members.</p>
+            </div>
+        </section>
+
+        <!-- ID selector: #featuredEvent targets a single element -->
+        <section>
+            <h2>ID Selector (#featuredEvent)</h2>
+            <div id="featuredEvent">
+                <h3>Independence Day Celebration</h3>
+                <p>Fireworks, live bands, and food trucks at Central Park.</p>
+            </div>
+        </section>
+
+        <!-- Descendant and child selectors demonstrated via nested structure -->
+        <section>
+            <h2>Descendant &amp; Child Selectors</h2>
+            <nav class="quickNav">
+                <ul>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#volunteer">Volunteer</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Attribute selector demo -->
+        <section>
+            <h2>Attribute Selector</h2>
+            <p>
+                Visit <a href="https://example.com/events" target="_blank">our events page</a> or
+                <a href="https://example.com/faq" target="_blank">read the FAQ</a>.
+            </p>
+            <p>
+                External link: <a href="https://example.org/partners" target="_blank">Our Partners</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal</p>
+    </footer>
+</body>
+</html>

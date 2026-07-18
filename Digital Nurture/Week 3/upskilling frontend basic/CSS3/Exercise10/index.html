@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal - Responsive Web Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <h1 class="logo">Local Community Event Portal</h1>
+            <p class="slogan">Connecting neighbors, building community</p>
+        </div>
+    </header>
+
+    <!-- Responsive navigation: horizontal on desktop, stacked on mobile -->
+    <nav class="main-nav" id="mainNav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776; Menu</button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#hero" class="nav-link">Home</a></li>
+            <li><a href="#events" class="nav-link">Events</a></li>
+            <li><a href="#categories" class="nav-link">Categories</a></li>
+            <li><a href="#newsletter" class="nav-link">Newsletter</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero section using flexbox layout -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h2>Your Community, Your Events</h2>
+                <p>Discover workshops, festivals, volunteer opportunities, and more happening right in your neighborhood.</p>
+                <a href="#events" class="cta-button">Browse Events</a>
+            </div>
+        </section>
+
+        <!-- Events grid using CSS Grid -->
+        <section id="events" class="events-section">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-grid">
+                <article class="event-card">
+                    <div class="card-image" style="background-color: #457b9d;">
+                        <span class="card-tag">Festival</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Summer Block Party</h3>
+                        <p class="card-date">July 25, 2026</p>
+                        <p>Food, music, and fun for the whole family on Main Street.</p>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="card-image" style="background-color: #2a9d8f;">
+                        <span class="card-tag">Workshop</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Garden Workshop</h3>
+                        <p class="card-date">July 30, 2026</p>
+                        <p>Learn sustainable gardening from local experts.</p>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="card-image" style="background-color: #e63946;">
+                        <span class="card-tag">Music</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Jazz in the Park</h3>
+                        <p class="card-date">July 27, 2026</p>
+                        <p>Live jazz under the stars at Riverside Park.</p>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="card-image" style="background-color: #f4a261;">
+                        <span class="card-tag">Sports</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Youth Soccer League</h3>
+                        <p class="card-date">August 1, 2026</p>
+                        <p>Fall season registration now open for ages 6-14.</p>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="card-image" style="background-color: #264653;">
+                        <span class="card-tag">Charity</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Charity Fun Run</h3>
+                        <p class="card-date">August 8, 2026</p>
+                        <p>5K run benefiting the community center expansion.</p>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="card-image" style="background-color: #6a4c93;">
+                        <span class="card-tag">Art</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Art Exhibition</h3>
+                        <p class="card-date">August 12, 2026</p>
+                        <p>Showcasing works by talented local artists.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Categories section using flexbox -->
+        <section id="categories" class="categories-section">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories-flex">
+                <div class="category-item">
+                    <div class="category-icon" style="background-color: #457b9d;">&#127947;</div>
+                    <h3>Sports &amp; Recreation</h3>
+                    <p>12 upcoming events</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background-color: #e63946;">&#127912;</div>
+                    <h3>Arts &amp; Culture</h3>
+                    <p>8 upcoming events</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background-color: #2a9d8f;">&#128218;</div>
+                    <h3>Education</h3>
+                    <p>6 upcoming events</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background-color: #f4a261;">&#10084;</div>
+                    <h3>Charity &amp; Fundraiser</h3>
+                    <p>4 upcoming events</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter subscription -->
+        <section id="newsletter" class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Stay in the Loop</h2>
+                <p>Subscribe to our weekly newsletter for event highlights and community news.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="email-input">
+                    <button type="submit" class="submit-btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact info using responsive grid -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Visit</h3>
+                    <p>Town Hall<br>100 Main Street<br>Community Town, ST 12345</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Call</h3>
+                    <p>Main Office: (555) 123-4567<br>Events Desk: (555) 123-4568<br>Mon-Fri, 9 AM - 5 PM</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p>General: info@community-events.gov<br>Events: events@community-events.gov<br>Volunteer: volunteer@community-events.gov</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Local Community Event Portal</p>
+            <p class="footer-note">Built with responsive design principles</p>
+        </div>
+    </footer>
+
+    <!-- Simple nav toggle script for mobile -->
+    <script>
+        document.getElementById('navToggle').addEventListener('click', function() {
+            var menu = document.getElementById('navMenu');
+            menu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

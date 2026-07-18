@@ -1,0 +1,407 @@
+/*
+    =============================================
+    styles.css
+    Exercise 8: Box Model and Layout Control
+    Theme: Local Community Event Portal
+    =============================================
+    Demonstrates: border, padding, margin on
+    .eventCard, outline for form fields,
+    visibility vs display:none demo.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Reset and Base Styles
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------
+   Site Header
+   ------------------------------------------- */
+.site-header {
+    background-color: #1d3557;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.site-header h1 {
+    font-size: 1.8rem;
+}
+
+.site-header p {
+    color: #a8dadc;
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* -------------------------------------------
+   Navigation
+   ------------------------------------------- */
+.main-nav {
+    background-color: #457b9d;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-nav a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: #1d3557;
+}
+
+/* -------------------------------------------
+   Content Sections
+   ------------------------------------------- */
+.content-section {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.content-section h2 {
+    color: #1d3557;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.2rem;
+}
+
+/* -------------------------------------------
+   Event Card - Full Box Model Demo
+   Border, padding, and margin on .eventCard
+   ------------------------------------------- */
+.eventCard {
+    /* Border: solid, 1px, with color */
+    border: 1px solid #d0d7de;
+    /* Border radius for rounded corners */
+    border-radius: 8px;
+    /* Padding: inner spacing between content and border */
+    padding: 1.2rem 1.5rem;
+    /* Margin: outer spacing between cards */
+    margin-bottom: 1.2rem;
+    /* Background color for the card */
+    background-color: #ffffff;
+    /* Box shadow for depth */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    /* Transition for smooth hover effect */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Card hover state - enhanced shadow */
+.eventCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Card heading */
+.eventCard h3 {
+    color: #1d3557;
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Card description */
+.eventCard p {
+    color: #555555;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Card footer row */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 0.8rem;
+}
+
+/* Date text in card footer */
+.date {
+    font-weight: bold;
+    color: #457b9d;
+    font-size: 0.9rem;
+}
+
+/* Small button inside card */
+.btn-small {
+    display: inline-block;
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-small:hover {
+    background-color: #c1121f;
+}
+
+/* -------------------------------------------
+   Featured Card - Different Border Style
+   Thicker colored left border
+   ------------------------------------------- */
+.featured-card {
+    border: 2px solid #e63946;
+    border-left: 5px solid #e63946;
+    background-color: #fff8f5;
+    position: relative;
+}
+
+/* Featured label badge */
+.featured-label {
+    display: inline-block;
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+/* -------------------------------------------
+   Outline Card - Uses outline instead of border
+   Outline does not affect box model layout
+   ------------------------------------------- */
+.outline-card {
+    border: none;
+    /* Outline: drawn outside the border edge */
+    /* Does NOT take up space in the box model */
+    outline: 2px solid #457b9d;
+    outline-offset: 3px;
+}
+
+/* -------------------------------------------
+   Form Styling - Outline on Focus
+   ------------------------------------------- */
+.registration-form {
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #1d3557;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+/* Form input fields */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333333;
+    /* Default outline removed - replaced on focus */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Form field focus state - outline appears */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #457b9d;
+    /* Outline on focus for accessibility */
+    outline: 3px solid rgba(69, 123, 157, 0.3);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(69, 123, 157, 0.1);
+}
+
+/* Submit button */
+.submit-btn {
+    display: inline-block;
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #c1121f;
+}
+
+/* -------------------------------------------
+   Spacing Comparison Demo
+   Three boxes with different margin values
+   ------------------------------------------- */
+.spacing-demo {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.box {
+    background-color: #457b9d;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Small margin - 8px */
+.small-margin {
+    margin: 8px;
+}
+
+/* Medium margin - 24px */
+.medium-margin {
+    margin: 24px;
+}
+
+/* Large margin - 48px */
+.large-margin {
+    margin: 48px;
+}
+
+/* -------------------------------------------
+   Visibility vs Display Demo
+   ------------------------------------------- */
+.toggle-controls {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.toggle-btn {
+    background-color: #1d3557;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+    background-color: #457b9d;
+}
+
+/* Demo boxes for visibility/display toggle */
+.demo-boxes {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.demo-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 1.5rem;
+    border: 2px solid #457b9d;
+    border-radius: 8px;
+    background-color: #e8f4f8;
+}
+
+.demo-box p {
+    font-size: 0.9rem;
+    color: #1d3557;
+}
+
+/* Code styling for inline code */
+code {
+    background-color: #f0f0f0;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    color: #e63946;
+}
+
+/* -------------------------------------------
+   Comparison Table
+   Side-by-side feature comparison
+   ------------------------------------------- */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.comparison-table thead {
+    background-color: #1d3557;
+    color: #ffffff;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.7rem 1rem;
+    text-align: center;
+    border: 1px solid #d0d7de;
+    font-size: 0.9rem;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #f4f7fa;
+}
+
+.comparison-table td:first-child {
+    font-weight: bold;
+    color: #1d3557;
+    text-align: left;
+}
+
+/* -------------------------------------------
+   Site Footer
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+}

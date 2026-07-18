@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 18.2 - Modal Popup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- EXERCISE 18.2: Modal popup triggered by a button -->
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand">Exercise 18.2 - Modal Popup</span>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Bootstrap Modal Popup</h1>
+
+        <!-- Basic modal trigger -->
+        <section class="mb-5">
+            <h3 class="text-primary mb-3">1. Basic Modal</h3>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                <i class="bi bi-window"></i> Open Modal
+            </button>
+        </section>
+
+        <!-- Modal with form -->
+        <section class="mb-5">
+            <h3 class="text-success mb-3">2. Form Modal</h3>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">
+                <i class="bi bi-person-plus"></i> Add User
+            </button>
+        </section>
+
+        <!-- Confirmation modal -->
+        <section class="mb-5">
+            <h3 class="text-danger mb-3">3. Confirmation Modal</h3>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                <i class="bi bi-trash"></i> Delete Item
+            </button>
+        </section>
+
+        <!-- Size variations -->
+        <section class="mb-5">
+            <h3 class="text-info mb-3">4. Modal Sizes</h3>
+            <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#smallModal">Small</button>
+            <button class="btn btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#largeModal">Large</button>
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#xlModal">Extra Large</button>
+        </section>
+
+        <!-- Fullscreen modal -->
+        <section class="mb-5">
+            <h3 class="text-warning mb-3">5. Fullscreen Modal</h3>
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#fullscreenModal">
+                <i class="bi bi-fullscreen"></i> Fullscreen Modal
+            </button>
+        </section>
+    </div>
+
+    <!-- Basic Modal -->
+    <div class="modal fade" id="basicModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Basic Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a basic Bootstrap modal popup. It's triggered by clicking the "Open Modal" button.</p>
+                    <p>Modals are positioned over the page content and include a backdrop overlay. They can contain any content including text, forms, and images.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Modal -->
+    <div class="modal fade" id="formModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="bi bi-person-plus"></i> Add New User</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Enter name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Role</label>
+                            <select class="form-select">
+                                <option>Admin</option>
+                                <option>Editor</option>
+                                <option>Viewer</option>
+                            </select>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="activeUser" checked>
+                            <label class="form-check-label" for="activeUser">Active User</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Add User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white border-0">
+                    <h5 class="modal-title"><i class="bi bi-exclamation-triangle"></i> Confirm Deletion</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="bi bi-trash display-1 text-danger"></i>
+                    <h4 class="mt-3">Are you sure?</h4>
+                    <p class="text-muted">This action cannot be undone. All data will be permanently deleted.</p>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small Modal -->
+    <div class="modal fade" id="smallModal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Small Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a small modal using <code>modal-sm</code>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Large Modal -->
+    <div class="modal fade" id="largeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Large Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a large modal using <code>modal-lg</code>. Useful for displaying more content, forms with many fields, or data tables.</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>John</td><td>john@example.com</td><td>Admin</td></tr>
+                                <tr><td>2</td><td>Jane</td><td>jane@example.com</td><td>Editor</td></tr>
+                                <tr><td>3</td><td>Bob</td><td>bob@example.com</td><td>Viewer</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- XL Modal -->
+    <div class="modal fade" id="xlModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Extra Large Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is an extra large modal using <code>modal-xl</code>. Ideal for dashboards, data visualizations, and complex layouts.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal -->
+    <div class="modal fade" id="fullscreenModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Fullscreen Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a fullscreen modal using <code>modal-fullscreen</code>. It takes up the entire viewport.</p>
+                    <p>Useful for immersive experiences, media viewers, and complex applications.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Bootstrap Exercise 18.2 | Modal Popup</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

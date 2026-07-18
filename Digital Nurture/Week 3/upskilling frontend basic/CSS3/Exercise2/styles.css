@@ -1,0 +1,239 @@
+/*
+    =============================================
+    styles.css
+    Exercise 2: CSS Syntax and Comments
+    Theme: Local Community Event Portal
+    =============================================
+    This file demonstrates proper CSS syntax
+    including selectors, declarations, properties,
+    values, and descriptive comments.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Page Reset and Base Styles
+   Applies a consistent foundation to all elements
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------
+   Site Header
+   Top banner with community branding
+   ------------------------------------------- */
+.site-header {
+    background-color: #1d3557;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.site-header h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.site-header p {
+    color: #a8dadc;
+    margin-top: 0.5rem;
+}
+
+/* -------------------------------------------
+   Hero Section
+   Main call-to-action area on the homepage
+   ------------------------------------------- */
+.hero {
+    background: linear-gradient(135deg, #457b9d, #1d3557);
+    color: #ffffff;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* -------------------------------------------
+   CTA Button
+   Primary call-to-action for the portal
+   ------------------------------------------- */
+.cta-button {
+    display: inline-block;
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* CTA button hover state */
+.cta-button:hover {
+    background-color: #c1121f;
+}
+
+/* -------------------------------------------
+   Section Heading
+   Shared heading style for all sections
+   ------------------------------------------- */
+.section-heading {
+    font-size: 1.5rem;
+    color: #1d3557;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------------
+   Events Section
+   Container for event listings
+   ------------------------------------------- */
+.events {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* -------------------------------------------
+   Event Item Card
+   Individual event listing within the section
+   ------------------------------------------- */
+.event-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #457b9d;
+}
+
+/* Event item heading */
+.event-item h3 {
+    color: #1d3557;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Event item description */
+.event-item p {
+    color: #666666;
+    font-size: 0.95rem;
+}
+
+/* Featured event gets a highlighted border */
+.event-item.featured {
+    border-left-color: #e63946;
+    background-color: #fff8f0;
+}
+
+/* -------------------------------------------
+   Tags
+   Category labels on each event
+   ------------------------------------------- */
+.tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+/* Workshop tag color */
+.workshop {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Music tag color */
+.music {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Featured tag color */
+.featured-tag {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* -------------------------------------------
+   Newsletter Section
+   Email subscription area
+   ------------------------------------------- */
+.newsletter {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.newsletter p {
+    margin-bottom: 1rem;
+}
+
+/* -------------------------------------------
+   Subscribe Form
+   Email input and button layout
+   ------------------------------------------- */
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Email input field */
+.email-input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    width: 280px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Email input focus state */
+.email-input:focus {
+    border-color: #457b9d;
+}
+
+/* -------------------------------------------
+   Site Footer
+   Bottom section with copyright info
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+}

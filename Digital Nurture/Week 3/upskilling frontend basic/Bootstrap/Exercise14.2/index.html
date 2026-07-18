@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 14.2 - Display Utilities (Hide/Show)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- EXERCISE 14.2: Use d-none, d-md-block, d-lg-flex to hide/show sections based on screen size -->
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand">Exercise 14.2 - Display Utilities</span>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-3">Hide/Show Sections Based on Screen Size</h1>
+        <div class="alert alert-info">
+            <strong>Instructions:</strong> Resize your browser window to see elements appear/disappear at different breakpoints.
+        </div>
+
+        <!-- d-none / d-block -->
+        <section class="mb-5">
+            <h3 class="text-primary mb-3">1. Basic Display: d-none and d-block</h3>
+            <div class="bg-primary text-white p-3 rounded d-none d-md-block mb-2">
+                <i class="bi bi-display"></i> This block is <strong>hidden on mobile</strong> (d-none) and <strong>visible on tablets and above</strong> (d-md-block).
+            </div>
+            <div class="bg-success text-white p-3 rounded d-block d-md-none mb-2">
+                <i class="bi bi-phone"></i> This block is <strong>only visible on mobile</strong> (d-block d-md-none).
+            </div>
+            <pre class="bg-dark text-light p-2 rounded"><code>d-none d-md-block — Hidden on mobile, visible on md+
+d-block d-md-none — Visible on mobile, hidden on md+</code></pre>
+        </section>
+
+        <!-- d-lg-flex -->
+        <section class="mb-5">
+            <h3 class="text-success mb-3">2. Flex Display: d-lg-flex</h3>
+            <div class="bg-light border p-3 rounded mb-2 d-lg-flex justify-content-between align-items-center">
+                <span>This container uses <code>d-lg-flex</code> — flexbox layout only on large screens (≥992px)</span>
+                <button class="btn btn-success btn-sm">Action</button>
+            </div>
+            <div class="bg-light border p-3 rounded mb-2 d-none d-lg-flex justify-content-between align-items-center">
+                <span><code>d-none d-lg-flex</code> — Hidden until large screen, then shows as flex</span>
+                <button class="btn btn-danger btn-sm">Action</button>
+            </div>
+        </section>
+
+        <!-- Responsive visibility table -->
+        <section class="mb-5">
+            <h3 class="text-danger mb-3">3. Display Utilities Reference</h3>
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Class</th>
+                        <th>xs (&lt;576)</th>
+                        <th>sm (≥576)</th>
+                        <th>md (≥768)</th>
+                        <th>lg (≥992)</th>
+                        <th>xl (≥1200)</th>
+                        <th>xxl (≥1400)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>d-none</code></td>
+                        <td>Hidden</td><td>Hidden</td><td>Hidden</td><td>Hidden</td><td>Hidden</td><td>Hidden</td>
+                    </tr>
+                    <tr>
+                        <td><code>d-block</code></td>
+                        <td>Visible</td><td>Visible</td><td>Visible</td><td>Visible</td><td>Visible</td><td>Visible</td>
+                    </tr>
+                    <tr>
+                        <td><code>d-md-block</code></td>
+                        <td>Hidden</td><td>Hidden</td><td>Visible</td><td>Visible</td><td>Visible</td><td>Visible</td>
+                    </tr>
+                    <tr>
+                        <td><code>d-lg-flex</code></td>
+                        <td>Hidden</td><td>Hidden</td><td>Hidden</td><td>Flex</td><td>Flex</td><td>Flex</td>
+                    </tr>
+                    <tr>
+                        <td><code>d-none d-md-flex</code></td>
+                        <td>Hidden</td><td>Hidden</td><td>Flex</td><td>Flex</td><td>Flex</td><td>Flex</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Practical example: Mobile vs Desktop content -->
+        <section class="mb-5">
+            <h3 class="text-info mb-3">4. Practical Example: Responsive Content</h3>
+
+            <!-- Mobile only content -->
+            <div class="d-block d-md-none mb-3">
+                <div class="card border-warning">
+                    <div class="card-body bg-warning bg-opacity-10">
+                        <h5><i class="bi bi-phone"></i> Mobile View</h5>
+                        <p>You are viewing this on a mobile device. This content is only shown on mobile using <code>d-block d-md-none</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop only content -->
+            <div class="d-none d-md-block mb-3">
+                <div class="card border-primary">
+                    <div class="card-body bg-primary bg-opacity-10">
+                        <h5><i class="bi bi-display"></i> Desktop View</h5>
+                        <p>You are viewing this on a tablet or desktop. This content uses <code>d-none d-md-block</code> to hide on mobile.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Large screen only -->
+            <div class="d-none d-lg-flex mb-3 p-3 bg-success bg-opacity-10 rounded border border-success">
+                <div class="flex-grow-1">
+                    <h5 class="text-success"><i class="bi bi-laptop"></i> Large Screen Only</h5>
+                    <p class="mb-0">This flex container only appears on large screens (≥992px) using <code>d-none d-lg-flex</code>.</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-success">Action</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Print vs screen -->
+        <section class="mb-5">
+            <h3 class="text-warning mb-3">5. Print Utility</h3>
+            <div class="d-none d-print-block bg-light p-3 border mb-2">
+                <strong>This content only appears when printing</strong> (d-none d-print-block)
+            </div>
+            <div class="d-block d-print-none bg-light p-3 border">
+                <strong>This content is hidden when printing</strong> (d-block d-print-none)
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Bootstrap Exercise 14.2 | Display Utilities</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

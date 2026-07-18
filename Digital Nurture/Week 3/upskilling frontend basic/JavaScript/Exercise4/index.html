@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Portal - Exercise 4: Functions & Closures</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-height: 100vh; padding: 2rem; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #fff; margin-bottom: 1rem; text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+        .section { background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .section h2 { color: #f5576c; margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .event-list { list-style: none; }
+        .event-list li { padding: 0.5rem; border-bottom: 1px solid #eee; }
+        button { padding: 0.5rem 1rem; background: #f5576c; color: white; border: none; border-radius: 6px; cursor: pointer; margin: 0.3rem; }
+        button:hover { opacity: 0.85; }
+        input, select { padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; margin: 0.3rem; }
+        .counter { font-size: 1.5rem; font-weight: bold; color: #f5576c; }
+        .badge { display: inline-block; background: #f5576c; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; margin-top: 1rem; text-align: center; display: block; width: fit-content; margin: 1rem auto 0; }
+        #filterResult { margin-top: 0.5rem; padding: 0.5rem; background: #fef2f2; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Local Community Event Portal</h1>
+
+        <div class="section">
+            <h2>Add a New Event</h2>
+            <input type="text" id="newEventName" placeholder="Event name">
+            <input type="text" id="newEventCategory" placeholder="Category">
+            <button onclick="addEvent()">Add Event</button>
+        </div>
+
+        <div class="section">
+            <h2>All Events</h2>
+            <ul class="event-list" id="allEvents"></ul>
+        </div>
+
+        <div class="section">
+            <h2>Filter by Category</h2>
+            <input type="text" id="filterCategory" placeholder="e.g. music">
+            <button onclick="applyFilter()">Filter</button>
+            <div id="filterResult"></div>
+        </div>
+
+        <div class="section">
+            <h2>Register User</h2>
+            <input type="text" id="userName" placeholder="Name">
+            <button onclick="registerUser()">Register</button>
+            <p>Total Registrations: <span class="counter" id="regCount">0</span></p>
+        </div>
+
+        <span class="badge">Exercise 4: Functions, Scope, Closures & Higher-Order Functions</span>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

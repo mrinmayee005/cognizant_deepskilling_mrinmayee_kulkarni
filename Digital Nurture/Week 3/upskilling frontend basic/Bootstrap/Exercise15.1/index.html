@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 15.1 - Responsive Sidebar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- EXERCISE 15.1: Responsive sidebar that only shows on tablets and above -->
+
+    <nav class="navbar navbar-dark bg-dark d-md-none">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MyApp</a>
+            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar: Hidden on mobile (d-none), visible on tablets+ (d-md-block) -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse offcanvas-md offcanvas-start"
+                 id="sidebarOffcanvas" style="min-height: 100vh;">
+                <div class="position-sticky pt-3">
+                    <!-- Brand (visible only on desktop, hidden in offcanvas) -->
+                    <div class="d-none d-md-block px-3 mb-4">
+                        <h4 class="text-white"><i class="bi bi-bootstrap-fill"></i> MyApp</h4>
+                    </div>
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#">
+                                <i class="bi bi-house-door"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="#">
+                                <i class="bi bi-bar-chart"></i> Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="#">
+                                <i class="bi bi-people"></i> Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="#">
+                                <i class="bi bi-cart"></i> Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="#">
+                                <i class="bi bi-chat-dots"></i> Messages
+                                <span class="badge bg-danger float-end">5</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <hr class="text-white-50 my-3">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="#">
+                                <i class="bi bi-gear"></i> Settings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="#">
+                                <i class="bi bi-question-circle"></i> Help
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- User info (desktop only) -->
+                    <div class="d-none d-md-block mt-auto px-3 py-3 position-absolute bottom-0 w-100">
+                        <div class="d-flex align-items-center">
+                            <img src="https://picsum.photos/seed/user/40/40" class="rounded-circle me-2" alt="User">
+                            <div>
+                                <div class="text-white small fw-bold">John Doe</div>
+                                <div class="text-white-50 small">Administrator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-plus"></i> New Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile notice -->
+                <div class="d-md-none alert alert-info">
+                    <i class="bi bi-info-circle"></i>
+                    <strong>Mobile View:</strong> The sidebar is hidden. Tap the menu icon to open it as an offcanvas panel.
+                </div>
+
+                <!-- Desktop notice -->
+                <div class="d-none d-md-block alert alert-success">
+                    <i class="bi bi-display"></i>
+                    <strong>Desktop/Tablet View:</strong> The sidebar is visible on the left. Resize below 768px to see it hide.
+                </div>
+
+                <!-- Stats -->
+                <div class="row g-4 mb-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="text-xs fw-bold text-primary text-uppercase">Revenue</div>
+                                <div class="h5 mb-0 fw-bold">$40,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="text-xs fw-bold text-success text-uppercase">Users</div>
+                                <div class="h5 mb-0 fw-bold">2,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="text-xs fw-bold text-info text-uppercase">Orders</div>
+                                <div class="h5 mb-0 fw-bold">1,200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="text-xs fw-bold text-warning text-uppercase">Tickets</div>
+                                <div class="h5 mb-0 fw-bold">18</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Responsive Sidebar Behavior</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr><th>Screen Size</th><th>Sidebar Behavior</th><th>Class Used</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Mobile (&lt;768px)</td><td>Hidden, offcanvas toggle</td><td><code>d-none d-md-block</code></td></tr>
+                                <tr><td>Tablet (≥768px)</td><td>Visible as sidebar</td><td><code>d-md-block</code></td></tr>
+                                <tr><td>Desktop (≥992px)</td><td>Visible with more width</td><td><code>col-lg-2</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

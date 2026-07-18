@@ -1,0 +1,7 @@
+exercises\UserServiceParameterizedTest.class
+exercises\UserControllerExceptionTest.class
+exercises\UserServiceTest.class
+exercises\UserMockMvcTest.class
+exercises\UserRepositoryTest.class
+exercises\UserServiceExceptionTest.class
+exercises\UserControllerPostTest.class

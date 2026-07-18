@@ -1,0 +1,8 @@
+angular.json: Configures Angular workspace settings including build/serve/test options and production budgets.
+tsconfig.json: Root TypeScript configuration with compiler options for strict mode and Angular settings.
+tsconfig.app.json: TypeScript config specific to the application build (references tsconfig.json).
+package.json: Lists project dependencies, dev dependencies, and npm scripts (start, build, test).
+src/main.ts: Application entry point that bootstraps the root App component using bootstrapApplication.
+src/app/app.config.ts: Provides application-level configuration including router and zone change detection.
+src/app/app.ts: Root component that serves as the application shell with router outlet.
+src/index.html: Main HTML file that hosts the Angular application.

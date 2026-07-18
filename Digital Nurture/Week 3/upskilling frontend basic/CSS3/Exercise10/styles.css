@@ -1,0 +1,544 @@
+/*
+    =============================================
+    styles.css
+    Exercise 10: Responsive Web Design
+    Theme: Local Community Event Portal
+    =============================================
+    Demonstrates: media queries for screens
+    < 768px, stacked navigation, responsive
+    sizing with %, vw, vh units, flexbox, and
+    CSS grid for responsive layouts.
+    =============================================
+*/
+
+/* -------------------------------------------
+   Reset and Base Styles
+   Using relative units for responsiveness
+   ------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+    /* Use viewport width for base font sizing */
+}
+
+/* -------------------------------------------
+   Site Header
+   Full-width header with vh-based padding
+   ------------------------------------------- */
+.site-header {
+    background-color: #1d3557;
+    color: #ffffff;
+    /* Using vh unit for responsive padding */
+    padding: 4vh 2vw;
+    text-align: center;
+}
+
+.logo {
+    /* Responsive font size using vw unit */
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    letter-spacing: 1px;
+}
+
+.slogan {
+    color: #a8dadc;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    margin-top: 0.3rem;
+}
+
+/* -------------------------------------------
+   Navigation
+   Horizontal on desktop, stacked on mobile
+   ------------------------------------------- */
+.main-nav {
+    background-color: #457b9d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Navigation toggle button - hidden on desktop */
+.nav-toggle {
+    display: none;
+    background-color: #1d3557;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Navigation menu - horizontal flexbox on desktop */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+/* Navigation links */
+.nav-link {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s;
+    /* Using percentage width on mobile */
+}
+
+.nav-link:hover {
+    background-color: #1d3557;
+}
+
+/* -------------------------------------------
+   Hero Section
+   Responsive hero using flexbox and vw/vh
+   ------------------------------------------- */
+.hero {
+    /* Flexbox for centering content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* vh unit for responsive height */
+    min-height: 50vh;
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #ffffff;
+    text-align: center;
+    /* Responsive padding */
+    padding: 5vh 2vw;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h2 {
+    /* Responsive font size */
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    margin-bottom: 1.5rem;
+    color: #d4e8ef;
+}
+
+/* CTA button */
+.cta-button {
+    display: inline-block;
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #c1121f;
+}
+
+/* -------------------------------------------
+   Section Title
+   Shared responsive heading
+   ------------------------------------------- */
+.section-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: #1d3557;
+    text-align: center;
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------------
+   Events Section
+   CSS Grid for event cards
+   ------------------------------------------- */
+.events-section {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Events grid - responsive with auto-fit */
+.events-grid {
+    display: grid;
+    /* Auto-fit: responsive columns without media queries */
+    /* minmax: each column at least 280px, max 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+
+/* Individual event card */
+.event-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Card hover effect */
+.event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Card image placeholder area */
+.card-image {
+    /* Using vh for responsive image height */
+    height: 12vh;
+    min-height: 80px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.5rem;
+}
+
+/* Event tag badge */
+.card-tag {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Card content */
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3 {
+    color: #1d3557;
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+}
+
+.card-date {
+    color: #457b9d;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+}
+
+.card-content p:last-child {
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+/* -------------------------------------------
+   Categories Section
+   Flexbox layout for category cards
+   ------------------------------------------- */
+.categories-section {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Categories flex container - wraps on smaller screens */
+.categories-flex {
+    display: flex;
+    /* Flex items wrap to the next line */
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Individual category item */
+.category-item {
+    /* Flex: grow, shrink, basis - each item takes equal share */
+    flex: 1 1 200px;
+    max-width: 250px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.category-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Category icon circle */
+.category-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0 auto 0.8rem;
+}
+
+.category-item h3 {
+    color: #1d3557;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.category-item p {
+    color: #888888;
+    font-size: 0.85rem;
+}
+
+/* -------------------------------------------
+   Newsletter Section
+   Full-width section with responsive padding
+   ------------------------------------------- */
+.newsletter-section {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #ffffff;
+    text-align: center;
+    padding: 4vh 2vw;
+    margin-top: 2rem;
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-content h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    margin-bottom: 0.5rem;
+}
+
+.newsletter-content > p {
+    margin-bottom: 1rem;
+    color: #d4e8ef;
+}
+
+/* Newsletter form - flexbox for responsive layout */
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Email input field */
+.email-input {
+    flex: 1 1 250px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    outline: none;
+    max-width: 350px;
+}
+
+.email-input:focus {
+    border-color: #a8dadc;
+}
+
+/* Submit button */
+.submit-btn {
+    flex: 0 0 auto;
+    padding: 0.75rem 1.5rem;
+    background-color: #e63946;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #c1121f;
+}
+
+/* -------------------------------------------
+   Contact Section
+   Responsive grid for contact cards
+   ------------------------------------------- */
+.contact-section {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Contact grid - responsive columns */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+}
+
+/* Individual contact card */
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.contact-card h3 {
+    color: #1d3557;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #a8dadc;
+}
+
+.contact-card p {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* -------------------------------------------
+   Site Footer
+   ------------------------------------------- */
+.site-footer {
+    background-color: #1d3557;
+    color: #a8dadc;
+    text-align: center;
+    padding: 1.5vh 2vw;
+    margin-top: 2rem;
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    opacity: 0.7;
+}
+
+/* ===========================================
+   MEDIA QUERY - Screens smaller than 768px
+   Adjustments for tablets and mobile devices
+   =========================================== */
+@media screen and (max-width: 768px) {
+
+    /* Show the navigation toggle button */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Hide nav menu by default on mobile */
+    .nav-menu {
+        display: none;
+        /* Vertical stacked layout */
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Show nav menu when toggled */
+    .nav-menu.show {
+        display: flex;
+    }
+
+    /* Full-width links on mobile */
+    .nav-link {
+        padding: 1rem;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /* 100% width */
+        width: 100%;
+    }
+
+    /* Reduce hero section height */
+    .hero {
+        min-height: 40vh;
+    }
+
+    /* Events grid - single column on mobile */
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Categories - 2 columns on mobile */
+    .categories-flex {
+        gap: 0.8rem;
+    }
+
+    .category-item {
+        flex: 1 1 45%;
+        max-width: 48%;
+    }
+
+    /* Newsletter form - stacked on mobile */
+    .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    /* Contact grid - single column on mobile */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce section padding */
+    .events-section,
+    .categories-section,
+    .contact-section {
+        padding: 0 0.8rem;
+    }
+}
+
+/* ===========================================
+   MEDIA QUERY - Screens smaller than 480px
+   Adjustments for small mobile phones
+   =========================================== */
+@media screen and (max-width: 480px) {
+
+    /* Categories - single column on very small screens */
+    .category-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    /* Reduce header padding */
+    .site-header {
+        padding: 2vh 1vw;
+    }
+
+    /* Reduce hero padding */
+    .hero {
+        min-height: 35vh;
+        padding: 3vh 1vw;
+    }
+
+    /* Full-width CTA button */
+    .cta-button {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}

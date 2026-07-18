@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 12.1 - Media Object Layout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- EXERCISE 12.1: Media object layout with image aligned to the left of content -->
+    <!-- Note: Bootstrap 5 removed the media object, but we can recreate it using flex utilities -->
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand">Exercise 12.1 - Media Object Layout</span>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Media Object Layout (Flex-based)</h1>
+        <p class="text-muted mb-4">Bootstrap 5 uses <code>d-flex</code> instead of the old <code>.media</code> class. Below are examples of media object patterns.</p>
+
+        <!-- Media object 1 -->
+        <div class="d-flex mb-4 p-3 bg-light rounded">
+            <img src="https://picsum.photos/seed/media1/100/100" class="rounded-circle me-3" alt="Avatar">
+            <div class="media-body">
+                <h5 class="mt-0">John Doe</h5>
+                <p>This is a classic media object layout. An image is placed to the left of the content using <code>d-flex</code>. The image is aligned to the top by default.</p>
+                <button class="btn btn-primary btn-sm">Read More</button>
+            </div>
+        </div>
+
+        <!-- Media object 2 - centered -->
+        <div class="d-flex align-items-center mb-4 p-3 bg-light rounded">
+            <img src="https://picsum.photos/seed/media2/80/80" class="rounded-circle me-3" alt="Avatar">
+            <div class="media-body">
+                <h5 class="mt-0">Jane Smith</h5>
+                <p>This media object is vertically centered using <code>align-items-center</code>. The image and content are aligned to the middle.</p>
+            </div>
+        </div>
+
+        <!-- Media object 3 - right aligned -->
+        <div class="d-flex justify-content-between mb-4 p-3 bg-light rounded">
+            <div class="media-body me-3">
+                <h5 class="mt-0">Right-Aligned Image</h5>
+                <p>In this layout, the content comes first and the image is placed on the right. Useful for alternating content layouts.</p>
+            </div>
+            <img src="https://picsum.photos/seed/media3/100/100" class="rounded" alt="Image">
+        </div>
+
+        <!-- List of media objects -->
+        <h3 class="mt-5 mb-3">Activity Feed (Media Object List)</h3>
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="d-flex">
+                    <img src="https://picsum.photos/seed/feed1/48/48" class="rounded-circle me-3" alt="">
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="mb-1">Alice commented on your post</h6>
+                            <small class="text-muted">2 hours ago</small>
+                        </div>
+                        <p class="mb-0 text-muted">Great article! I really enjoyed reading about Bootstrap 5 features.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="d-flex">
+                    <img src="https://picsum.photos/seed/feed2/48/48" class="rounded-circle me-3" alt="">
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="mb-1">Bob liked your photo</h6>
+                            <small class="text-muted">5 hours ago</small>
+                        </div>
+                        <p class="mb-0 text-muted">Your sunset photo got 45 likes!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="d-flex">
+                    <img src="https://picsum.photos/seed/feed3/48/48" class="rounded-circle me-3" alt="">
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="mb-1">Carol shared your article</h6>
+                            <small class="text-muted">1 day ago</small>
+                        </div>
+                        <p class="mb-0 text-muted">Your tutorial was shared with 120 followers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nested media objects -->
+        <h3 class="mt-5 mb-3">Comment Thread</h3>
+        <div class="d-flex mb-3">
+            <img src="https://picsum.photos/seed/comment1/48/48" class="rounded-circle me-3" alt="">
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between">
+                    <h6 class="mb-0">David Wilson</h6>
+                    <small class="text-muted">3 hours ago</small>
+                </div>
+                <p>Excellent tutorial on Bootstrap flex utilities!</p>
+
+                <!-- Nested reply -->
+                <div class="d-flex ms-4 mt-3">
+                    <img src="https://picsum.photos/seed/comment2/40/40" class="rounded-circle me-2" alt="">
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="mb-0 small">Emily Chen</h6>
+                            <small class="text-muted">2 hours ago</small>
+                        </div>
+                        <p class="small">Thanks David! Glad you found it helpful.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Bootstrap Exercise 12.1 | Media Object Layout</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
